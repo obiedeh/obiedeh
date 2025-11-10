@@ -3,38 +3,19 @@
 Building intelligent telecom networks & scalable AI systems.
 
 ### 📡 Focus Areas
-- **AI-RAN & Private Wireless** — network KPI prediction, RAN optimization, anomaly detection  
-- **Cloud-Native Data & MLOps** — ETL/ELT, feature stores, CI/CD, MLflow, Kubeflow  
-- **Large-Scale Analytics** — GPU acceleration (RAPIDS/cuDF/XGBoost), distributed pipelines  
+- **AI-RAN & Private 5G:** KPI forecasting, anomaly detection, network automation
+- **Cloud / MLOps:** ETL pipelines, feature stores, CI/CD for ML, MLflow/Kubeflow
+- **GPU Analytics:** RAPIDS/cuDF, XGBoost, distributed compute
 
-### 🧠 Core Skills
-`Python` `SQL` `PyTorch` `XGBoost` `Airflow`  
+### 🧰 Tech Stack
+`Python` `SQL` `PyTorch` `Airflow`  
 `Docker` `Kubernetes` `Terraform`  
 `AWS` `Azure` `GCP`  
-`RAPIDS` `MLflow` `Spark` `dbt`
+`RAPIDS` `Spark` `dbt`
 
-### 🚀 Highlight Projects
-| Project | What it does | Stack |
-|---|---|---|
-| **AI-RAN KPI Forecasting** | Predict PRB, throughput, call-drop KPIs | RAPIDS, XGBoost, MLflow |
-| **Telco Churn Modeling** | Predict & explain customer churn (SHAP) | scikit-learn, dbt, Airflow |
-| **Private 5G Traffic Pipeline** | Ingest, transform, and analyze 5G data | Kafka, Spark, Lakehouse |
+### 🚀 Projects
+- **AI-RAN KPI Forecasting** — accelerated ML + MLflow
+- **Telecom Churn ML** — explainable churn with SHAP
+- **Private 5G Pipeline** — ingest → transform → parquet
 
-📬 **Let’s Connect**
-- LinkedIn: … https://www.linkedin.com/in/obinna-edeh-206306137/
-- Email: … obiedeh@gmail.com
-
-<!--
-**obiedeh/obiedeh** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+📬 Connect: LinkedIn • Email
