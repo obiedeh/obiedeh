@@ -5,7 +5,7 @@ Building intelligent AI-Netive networks, Scalable AI systems & Physical AI
 ### 📡 Focus Areas
 - **AI-RAN & Private 5G:** KPI forecasting, anomaly detection, network automation
 - **Cloud / MLOps:** ETL pipelines, feature stores, CI/CD for ML, MLflow/Kubeflow
-- **GPU Analytics:** RAPIDS/cuDF, XGBoost, Accelerated & distributed compute
+- **GPU Analytics:** RAPIDS/cuDF, XGBoost, with Accelerated & Distributed compute
 
 ### 🧰 Tech Stack
 `Python` `SQL` `PyTorch` `Airflow`  
