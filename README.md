@@ -14,8 +14,10 @@ Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions & Physical AI Sy
 `RAPIDS` `Spark` `dbt`
 
 ### 🚀 Projects
-- **AI-RAN KPI Forecasting** — accelerated ML + MLflow
-- **Telecom Churn ML** — explainable churn with SHAP
-- **Private 5G Pipeline** — ingest → transform → parquet
+- **AI-RAN 5G KPI Forecasting** — accelerated ML + MLflow
+- **Telecom Churn EDA & ML** — explainable churn with SHAP
+- **Private 5G RAN Pipeline** — ingest → transform → parquet
+- **Breast Cancer Detection EDA & ML** — Agentic SHAP email
+
 
 📬 Connect: LinkedIn • Email
