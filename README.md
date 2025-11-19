@@ -1,6 +1,6 @@
 ## Hi, This is Obinna — AI/ML • Cloud/Data • Solutions Architect
 
-Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions & Physical AI Systems
+Problem Solver, Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions & Physical AI Systems
 
 ### Focus Areas
 - **AI-RAN & Private 5G:** KPI forecasting, anomaly detection, network automation
