@@ -1,4 +1,4 @@
-# Hi, This is Obinna — AI/ML • Cloud/Data • Solutions Architect
+## Hi, This is Obinna — AI/ML • Cloud/Data • Solutions Architect
 
 Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions & Physical AI Systems
 
