@@ -17,6 +17,7 @@ Problem Solver, Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions 
 - **AI-RAN 5G KPI Forecasting** — accelerated ML + MLflow
 - **Telecom Churn EDA & ML** — explainable churn with SHAP
 - **Private 5G RAN Pipeline** — ingest → transform → parquet
+- **QPSK-Wireless-Link-Simulator** — performance analysis
 - **Breast Cancer Detection EDA & ML** — Agentic SHAP email
 
 
