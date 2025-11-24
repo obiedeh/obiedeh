@@ -1,4 +1,4 @@
-## Hi, This is Obinna — AI/ML • Telco • Cloud • Data • Solutions Architect
+### Hi, This is Obinna — AI/ML • Telco • Cloud • Data • Solutions Architect
 
 Problem Solver, Building intelligent AI-Native 5G/6G RAN, Scalable AI Solutions & Physical AI Systems
 
