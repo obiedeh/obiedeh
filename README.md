@@ -6,13 +6,13 @@
 
 I design and build production-grade AI systems that operate across cloud, distributed compute, edge devices, and real-world infrastructure. My focus is on AI-native architectures, forecasting systems, accelerated machine learning, and intelligent automation across networked and physical systems.
 
-Currently pursuing an [M.S. in Applied Artificial Intelligence](https://www.sandiego.edu/engineering/graduate/ms-applied-artificial-intelligence.php) at the University of San Diego (2026 anticipated).
+Currently pursuing an [M.S. in Applied Artificial Intelligence](https://www.sandiego.edu/engineering/graduate/ms-applied-artificial-intelligence.php) at the University of San Diego (2027 anticipated).
 
 ---
 
 ### 🌱 Education
 
-- M.S. in Applied Artificial Intelligence (University of San Diego, 2026\* anticipated)
+- M.S. in Applied Artificial Intelligence (University of San Diego, 2027\* anticipated)
 
 ---
 
