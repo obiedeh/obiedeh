@@ -70,6 +70,25 @@ Exploring communication system foundations for AI-RAN, 6G, physical-layer intell
 
 ---
 
+## Featured Repository Map
+
+| Track | Area | Repository | Focus |
+|---|---|---|---|
+| 1 | Physical AI and Robotics | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
+| 2 | Edge AI Runtime and Infrastructure | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Edge CNN optimization and deployment benchmarking |
+| 3 | AI-RAN and Telecom Intelligence | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom operational intelligence |
+| 4 | Telecom Telemetry and Observability | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
+| 5 | Agentic and Explainable AI Systems | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Explainable clinical decision-support workflows |
+| 6 | Wireless Systems and Signal Processing | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
+
+Supporting repo:
+
+| Area | Repository | Focus |
+|---|---|---|
+| Telecom Customer Intelligence | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, and agentic analytics |
+
+---
+
 ## Future Project Directions
 
 These are planned project directions that support the same core thesis of deployable AI systems for edge and physical infrastructure:
@@ -111,20 +130,6 @@ That means the work here increasingly focuses on:
 **Data and MLOps:** SQL, Spark, Airflow, dbt, Docker, Kubernetes, CI/CD  
 **Cloud and Infrastructure:** AWS, Azure, GCP, Terraform, distributed compute  
 **Telecom and AI-RAN:** RAN telemetry, KPI forecasting, private 5G, edge workload intelligence
-
----
-
-## Selected Repositories
-
-| Area | Repository | Focus |
-|---|---|---|
-| Physical AI | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
-| Edge AI | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Edge CNN optimization and deployment benchmarking |
-| AI-RAN | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom intelligence |
-| Telecom Telemetry | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
-| Telecom Intelligence | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, agentic analytics |
-| Medical AI | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Explainable clinical decision-support workflows |
-| Wireless Systems | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
 
 ---
 
