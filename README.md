@@ -48,22 +48,27 @@ Optimizing compact AI workloads for constrained edge systems using ONNX, TensorR
 
 **Repository:** [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification)
 
-### 3. AI-RAN and Telecom Intelligence
-Applying AI to RAN telemetry, KPI forecasting, congestion visibility, anomaly detection, private 5G analytics, and inference-aware edge infrastructure.
+### 3. Edge AI Security and Observability
+Exploring AI-assisted edge and IIoT security workflows, telemetry-aware anomaly detection, and operational observability for infrastructure environments.
 
-**Repository:** [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting)
+**Project Direction:** `projects/jetson-edge-ai-security/`
 
-### 4. Telecom Telemetry and Observability
-Designing data pipelines for network telemetry ingestion, validation, transformation, feature engineering, and downstream AI/ML workflows.
-
-**Repository:** [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline)
-
-### 5. Agentic and Explainable AI Systems
+### 4. Agentic and Explainable AI Systems
 Building interpretable AI workflows with SHAP, operational summaries, human-in-the-loop review, and agentic reporting patterns.
 
 **Repository:** [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability)
 
-### 6. Wireless Systems and Signal Processing
+### 5. AI-RAN and Telecom Intelligence
+Applying AI to RAN telemetry, KPI forecasting, congestion visibility, anomaly detection, private 5G analytics, and inference-aware edge infrastructure.
+
+**Repository:** [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting)
+
+### 6. Telecom Telemetry and Observability
+Designing data pipelines for network telemetry ingestion, validation, transformation, feature engineering, and downstream AI/ML workflows.
+
+**Repository:** [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline)
+
+### 7. Wireless Systems and Signal Processing
 Exploring communication system foundations for AI-RAN, 6G, physical-layer intelligence, channel modeling, BER analysis, and future AI-assisted receiver workflows.
 
 **Repository:** [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator)
@@ -76,10 +81,11 @@ Exploring communication system foundations for AI-RAN, 6G, physical-layer intell
 |---|---|---|---|
 | 1 | Physical AI and Robotics | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
 | 2 | Edge AI Runtime and Infrastructure | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Edge CNN optimization and deployment benchmarking |
-| 3 | AI-RAN and Telecom Intelligence | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom operational intelligence |
-| 4 | Telecom Telemetry and Observability | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
-| 5 | Agentic and Explainable AI Systems | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Explainable clinical decision-support workflows |
-| 6 | Wireless Systems and Signal Processing | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
+| 3 | Edge AI Security and Observability | `projects/jetson-edge-ai-security/` | Edge and IIoT telemetry-aware security workflows |
+| 4 | Agentic and Explainable AI Systems | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Explainable clinical decision-support workflows |
+| 5 | AI-RAN and Telecom Intelligence | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom operational intelligence |
+| 6 | Telecom Telemetry and Observability | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
+| 7 | Wireless Systems and Signal Processing | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
 
 Supporting repo:
 
@@ -95,7 +101,6 @@ These are planned project directions that support the same core thesis of deploy
 
 | Direction | Focus |
 |---|---|
-| Jetson Edge AI Security | AI-assisted edge and IIoT security telemetry workflows |
 | Physical AI Safety Observability | Cosmos/VLM-style safety monitoring, PPE verification, and industrial observability |
 | Urban Edge Vision Analytics | Human-reviewed traffic event analysis and smart intersection edge intelligence |
 
