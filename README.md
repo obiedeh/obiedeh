@@ -20,7 +20,7 @@ I am currently pursuing an **M.S. in Applied Artificial Intelligence** at the Un
 
 ### Agentic Physical AI Operations Platform
 
-A production-oriented lab for building and validating AI systems that can observe, reason over, and support physical infrastructure at the edge.
+A production-oriented engineering platform for building and validating AI systems that can observe, reason over, and support physical infrastructure at the edge.
 
 The goal is not to build another notebook demo. The goal is to build a credible engineering stack for:
 
@@ -32,16 +32,16 @@ The goal is not to build another notebook demo. The goal is to build a credible 
 - AI-RAN and private 5G readiness for robotics workloads
 - sim-to-real validation and deployment evidence
 
-**Flagship repo:** [physical-ai-jetson-robotics-lab](https://github.com/obiedeh/physical-ai-jetson-robotics-lab)
+**Flagship repo:** [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics)
 
 ---
 
 ## Featured Engineering Tracks
 
 ### 1. Physical AI and Robotics
-Building a hands-on robotics lab around Jetson, ROS 2, OpenUSD, Isaac Sim, mobile robots, robotic arms, perception, and sim-to-real deployment.
+Building hands-on robotics and edge AI systems around Jetson, ROS 2, OpenUSD, Isaac Sim, mobile robots, robotic arms, perception, and sim-to-real deployment.
 
-**Repository:** [physical-ai-jetson-robotics-lab](https://github.com/obiedeh/physical-ai-jetson-robotics-lab)
+**Repository:** [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics)
 
 ### 2. AI-RAN and Telecom Intelligence
 Applying AI to network telemetry, KPI forecasting, anomaly detection, private 5G analytics, and inference-aware edge infrastructure.
@@ -98,7 +98,7 @@ That means the work here will increasingly focus on:
 
 | Area | Repository | Focus |
 |---|---|---|
-| Physical AI | [physical-ai-jetson-robotics-lab](https://github.com/obiedeh/physical-ai-jetson-robotics-lab) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
+| Physical AI | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
 | AI-RAN | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom intelligence |
 | Private 5G | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and feature engineering |
 | Telecom ML | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, agentic analytics |
