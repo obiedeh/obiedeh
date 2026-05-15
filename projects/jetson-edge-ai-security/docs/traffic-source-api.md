@@ -1,25 +1,57 @@
 # Traffic Source API
 
-This project uses a pluggable telemetry-source interface so the detection pipeline does not depend on one dataset or one capture mechanism.
+`TrafficSource` is the stable ingestion contract for the runtime.
 
-Supported source categories:
+```python
+class TrafficSource(ABC):
+    name: str
 
-- CSV replay for existing Edge-IIoT datasets
-- PCAP replay for previously captured lab traffic
-- Live capture adapters for approved defensive lab environments
-- MQTT telemetry adapters for IIoT devices
-- Zeek and Suricata log adapters for security monitoring pipelines
-- Synthetic benign/adversarial lab-event generators for controlled defensive testing
+    def open(self) -> None: ...
+    def events(self) -> Iterator[TelemetryEvent]: ...
+    def close(self) -> None: ...
+```
 
-The design goal is simple: every source emits normalized telemetry events into the same downstream feature extraction, inference, alerting, and benchmarking path.
+Sources are also context managers:
 
-## Interface contract
+```python
+with CsvReplaySource("data/sample.csv", limit=1000) as source:
+    for event in source.events():
+        ...
+```
 
-Each source must provide:
+## Source Responsibilities
 
-- `name`: stable source name
-- `open()`: allocate source resources
-- `events()`: stream normalized telemetry events
-- `close()`: release resources
+A source should:
 
-The interface intentionally avoids coupling to any specific capture backend. Future adapters can wrap Wireshark/tshark exports, Zeek logs, Suricata EVE JSON, MQTT streams, or generated lab traffic without changing the model pipeline.
+- Own file handles, network clients, and capture sessions.
+- Normalize records into `TelemetryEvent`.
+- Put source-specific raw fields in `metadata`.
+- Tolerate optional missing fields when safe.
+- Use clear errors for unrecoverable source failures.
+
+A source should not:
+
+- Run detection logic.
+- Generate alerts directly.
+- Depend on notebook state.
+- Require labels for live production traffic.
+- Include offensive malware behavior or attack execution.
+
+## CSV Replay
+
+`CsvReplaySource` maps Edge-IIoT style columns and common IDS aliases into normalized events. It supports:
+
+- `limit`
+- `replay_delay_seconds`
+- strict or forgiving malformed-row behavior
+- unmapped column preservation in event metadata
+
+## Adding a Source
+
+1. Create a module in `jetson_edge_ai_security.sources`.
+2. Subclass `TrafficSource`.
+3. Implement `open`, `events`, and `close`.
+4. Normalize every output into `TelemetryEvent`.
+5. Add tests for lifecycle, mapping, malformed data, and stream behavior.
+6. Export the source from `sources/__init__.py`.
+
