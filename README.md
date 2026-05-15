@@ -61,7 +61,7 @@ Designing data pipelines for network telemetry ingestion, validation, transforma
 ### 5. Agentic and Explainable AI Systems
 Building interpretable AI workflows with SHAP, operational summaries, human-in-the-loop review, and agentic reporting patterns.
 
-**Repository:** [breast-cancer-detection-eda-ml-agentic-shap-email](https://github.com/obiedeh/breast-cancer-detection-eda-ml-agentic-shap-email)
+**Repository:** [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability)
 
 ### 6. Wireless Systems and Signal Processing
 Exploring communication system foundations for AI-RAN, 6G, physical-layer intelligence, channel modeling, BER analysis, and future AI-assisted receiver workflows.
@@ -123,7 +123,7 @@ That means the work here increasingly focuses on:
 | AI-RAN | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom intelligence |
 | Telecom Telemetry | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
 | Telecom Intelligence | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, agentic analytics |
-| Medical AI | [breast-cancer-detection-eda-ml-agentic-shap-email](https://github.com/obiedeh/breast-cancer-detection-eda-ml-agentic-shap-email) | Explainable clinical decision-support workflows |
+| Medical AI | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Explainable clinical decision-support workflows |
 | Wireless Systems | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
 
 ---
