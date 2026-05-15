@@ -2,7 +2,7 @@
 
 **AI Systems Engineer focused on Physical AI, Edge AI, Agentic AI, LLM/RAG, and AI-RAN.**
 
-I build AI systems where intelligence meets infrastructure: robots, edge devices, telecom networks, distributed compute, and operations workflows.
+I build AI systems where intelligence meets infrastructure: robots, edge devices, telecom networks, distributed compute, and operational workflows.
 
 My work sits at the intersection of:
 
@@ -39,29 +39,48 @@ The goal is not to build another notebook demo. The goal is to build a credible 
 ## Featured Engineering Tracks
 
 ### 1. Physical AI and Robotics
-Building hands-on robotics and edge AI systems around Jetson, ROS 2, OpenUSD, Isaac Sim, mobile robots, robotic arms, perception, and sim-to-real deployment.
+Building simulation-to-real robotics systems around Jetson, ROS 2, OpenUSD, Isaac Sim, mobile robots, robotic arms, perception, telemetry, and edge deployment.
 
 **Repository:** [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics)
 
-### 2. AI-RAN and Telecom Intelligence
-Applying AI to network telemetry, KPI forecasting, anomaly detection, private 5G analytics, and inference-aware edge infrastructure.
+### 2. Edge AI Runtime and Infrastructure
+Optimizing compact AI workloads for constrained edge systems using ONNX, TensorRT, Jetson-class hardware, latency benchmarking, memory profiling, and deployment-aware evaluation.
+
+**Repository:** [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification)
+
+### 3. AI-RAN and Telecom Intelligence
+Applying AI to RAN telemetry, KPI forecasting, congestion visibility, anomaly detection, private 5G analytics, and inference-aware edge infrastructure.
 
 **Repository:** [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting)
 
-### 3. Private 5G Data Engineering
-Designing telemetry pipelines for network data ingestion, transformation, feature engineering, and downstream ML workflows.
+### 4. Telecom Telemetry and Observability
+Designing data pipelines for network telemetry ingestion, validation, transformation, feature engineering, and downstream AI/ML workflows.
 
 **Repository:** [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline)
 
-### 4. Agentic AI and Explainable ML
-Building applied ML systems with interpretable outputs, agentic reporting, SHAP explanations, and operational delivery paths.
+### 5. Agentic and Explainable AI Systems
+Building interpretable AI workflows with SHAP, operational summaries, human-in-the-loop review, and agentic reporting patterns.
 
 **Repository:** [breast-cancer-detection-eda-ml-agentic-shap-email](https://github.com/obiedeh/breast-cancer-detection-eda-ml-agentic-shap-email)
 
-### 5. Wireless Systems and Signal Processing
-Exploring wireless communication fundamentals as a foundation for AI-RAN, 6G, and physical-layer intelligence.
+### 6. Wireless Systems and Signal Processing
+Exploring communication system foundations for AI-RAN, 6G, physical-layer intelligence, channel modeling, BER analysis, and future AI-assisted receiver workflows.
 
 **Repository:** [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator)
+
+---
+
+## Future Project Directions
+
+These are planned project directions that support the same core thesis of deployable AI systems for edge and physical infrastructure:
+
+| Direction | Focus |
+|---|---|
+| Jetson Edge AI Security | AI-assisted edge and IIoT security telemetry workflows |
+| Physical AI Safety Observability | Cosmos/VLM-style safety monitoring, PPE verification, and industrial observability |
+| Urban Edge Vision Analytics | Human-reviewed traffic event analysis and smart intersection edge intelligence |
+
+Project notes live under [`projects/`](projects/).
 
 ---
 
@@ -71,13 +90,14 @@ I am shaping this GitHub into a focused portfolio around one thesis:
 
 > Production AI is moving from isolated models to deployed systems that reason over physical infrastructure, edge compute, network telemetry, and real-world operations.
 
-That means the work here will increasingly focus on:
+That means the work here increasingly focuses on:
 
 - robotics and Physical AI systems
 - edge inference on Jetson-class hardware
 - agentic operations copilots
 - RAG over logs, manuals, telemetry, and system state
 - AI-native telecom and AI-RAN workflows
+- explainable and human-reviewed AI systems
 - reproducible engineering, testing, and deployment evidence
 
 ---
@@ -99,10 +119,12 @@ That means the work here will increasingly focus on:
 | Area | Repository | Focus |
 |---|---|---|
 | Physical AI | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson robotics, ROS 2, OpenUSD, Isaac, sim-to-real |
+| Edge AI | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Edge CNN optimization and deployment benchmarking |
 | AI-RAN | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and telecom intelligence |
-| Private 5G | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and feature engineering |
-| Telecom ML | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, agentic analytics |
-| Wireless | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation and BER analysis |
+| Telecom Telemetry | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Network telemetry pipelines and observability infrastructure |
+| Telecom Intelligence | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Customer intelligence, explainability, agentic analytics |
+| Medical AI | [breast-cancer-detection-eda-ml-agentic-shap-email](https://github.com/obiedeh/breast-cancer-detection-eda-ml-agentic-shap-email) | Explainable clinical decision-support workflows |
+| Wireless Systems | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER analysis, wireless link foundations |
 
 ---
 
