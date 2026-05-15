@@ -1,62 +1,99 @@
 # Jetson Edge AI Security
 
-AI-assisted operational security for edge, IIoT, and infrastructure telemetry environments.
+Jetson Edge AI Security is a production-oriented defensive telemetry runtime for edge IDS research and deployment. It converts replayed or observed security telemetry into normalized events, rolling features, baseline detections, alerts, and benchmark-ready metrics.
 
-This project will explore how Jetson-class edge devices can support lightweight intrusion detection, anomaly detection, and operational security monitoring close to the source of industrial and network telemetry.
+The project is edge-native because the runtime is built around streaming sources, small memory windows, conservative baseline detection, and simple dependencies that can run on Jetson-class devices before heavier model runners are introduced.
 
-The goal is not to build a generic cybersecurity demo.
+## Current MVP
 
-The goal is to build an edge AI security workflow for infrastructure environments where latency, local inference, telemetry visibility, and constrained compute matter.
+- Pluggable `TrafficSource` API with context-manager lifecycle.
+- `TelemetryEvent` and `Alert` schemas using Pydantic.
+- CSV replay for Edge-IIoT style datasets and similar IDS exports.
+- Sliding window feature extraction over an iterable event stream.
+- Rule-based baseline detector with optional `sklearn` IsolationForest.
+- Pipeline runner that tracks events, windows, detections, and emitted alerts.
+- Typer CLI for config validation, CSV replay, and a built-in demo.
 
----
+## Telemetry Source Strategy
 
-## Core Direction
+The runtime normalizes every source into `TelemetryEvent` before feature extraction. That keeps ML, detection, alerting, and reporting independent from the source adapter.
 
-This project is intended to connect:
+Supported now:
 
-- Edge AI
-- Jetson deployment
-- IIoT telemetry
-- anomaly detection
-- network edge security
-- operational observability
-- AI-assisted incident triage
+- CSV replay from defensive datasets and lab captures.
 
----
+Planned adapters:
 
-## Planned Capabilities
+- PCAP replay for packet captures.
+- Live capture for defensive interface monitoring.
+- MQTT telemetry ingestion.
+- Zeek log ingestion.
+- Suricata EVE JSON ingestion.
 
-- Edge-IIoT style telemetry ingestion
-- lightweight anomaly detection baseline
-- model training and evaluation pipeline
-- Jetson-oriented inference path
-- latency and memory benchmarking
-- alert summaries and operator-facing reports
-- security event explanation workflow
+Attack traffic support is intentionally limited to controlled defensive lab telemetry, replay, simulation, and IDS-log ingestion.
 
----
+## What Is Intentionally Not Included
 
-## Evidence Targets
+- Offensive malware generation or exploitation tooling.
+- Autonomous attack execution.
+- Notebook-only runtime paths.
+- Deep learning as the default detector.
+- Hardcoded `/data` paths or hidden global state.
 
-Planned evidence artifacts:
+Existing notebooks and reports should remain reference material. Reusable academic ideas are preserved in runtime form through CSV column mapping, label normalization, timestamp parsing, temporal aggregation, leakage-aware feature windows, and attack-count forecasting scaffolding.
 
-- dataset profile
-- model metrics
-- confusion matrix
-- feature importance or SHAP report
-- Jetson inference benchmark
-- sample alert report
-- edge security architecture diagram
+## Install
 
----
+```bash
+cd projects/jetson-edge-ai-security
+python -m pip install -e ".[dev]"
+```
 
-## Positioning
+Optional ML detector support:
 
-This project supports a broader engineering focus around:
+```bash
+python -m pip install -e ".[ml]"
+```
 
-- Edge AI systems
-- operational security
-- AI infrastructure monitoring
-- Physical AI environments
-- industrial telemetry intelligence
-- deployable AI at the network edge
+## Run Tests
+
+```bash
+cd projects/jetson-edge-ai-security
+python -m pytest
+```
+
+## Validate Config
+
+```bash
+edge-security validate-config --config configs/default.yaml
+```
+
+## Run CSV Replay
+
+```bash
+edge-security replay-csv --path data/sample.csv --limit 1000
+```
+
+For malformed-row enforcement during data quality checks:
+
+```bash
+edge-security replay-csv --path data/sample.csv --strict
+```
+
+## Run Demo
+
+```bash
+edge-security run-demo
+```
+
+## Future Jetson Deployment Path
+
+The runtime is designed so Jetson deployment can add hardware-specific packaging without changing the detection pipeline:
+
+- Package the project into a small Python environment or container.
+- Mount read-only configs and source-specific credentials.
+- Run CSV replay for lab validation.
+- Add live capture or broker-based telemetry adapters.
+- Export alerts to a local file, MQTT topic, SIEM forwarder, or edge dashboard.
+- Benchmark CPU, memory, latency, and alert throughput on Jetson Orin-class hardware.
+
