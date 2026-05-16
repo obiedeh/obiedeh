@@ -79,13 +79,13 @@ Public skills should NOT contain:
 
 | Skill | Purpose |
 |---|---|
-| `production-architecture-reviewer` | Detect fake scalability, abstraction creep, weak service boundaries, poor deployment realism, and missing observability |
-| `repo-hardening-refactor` | Remove dead code, reduce duplication, simplify modules, prevent AI-generated repo sprawl |
-| `runtime-stability-debugger` | Review GPU pressure, KV cache growth, queue depth, streaming degradation, repeated-run instability |
-| `edge-ai-deployer` | Validate Jetson, RTX, CUDA, Docker, TensorRT, vLLM, runtime health, deployment readiness |
-| `observability-generator` | Enforce metrics, traces, structured logging, health checks, queue telemetry, runtime visibility |
-| `physical-ai-safety-reviewer` | Review robotics safety, unsafe actions, sensor confidence, fail-safe logic, escalation paths |
-| `ai-ran-workflow-generator` | Generate telecom commissioning flows, KPI workflows, rollback logic, operational SOP structure |
+| [`production-architecture-reviewer`](production-architecture-reviewer.md) | Detect fake scalability, abstraction creep, weak service boundaries, poor deployment realism, and missing observability |
+| [`repo-hardening-refactor`](repo-hardening-refactor.md) | Remove dead code, reduce duplication, simplify modules, prevent AI-generated repo sprawl |
+| [`runtime-stability-debugger`](runtime-stability-debugger.md) | Review GPU pressure, KV cache growth, queue depth, streaming degradation, repeated-run instability |
+| [`edge-ai-deployer`](edge-ai-deployer.md) | Validate Jetson, RTX, CUDA, Docker, TensorRT, vLLM, runtime health, deployment readiness |
+| [`observability-generator`](observability-generator.md) | Enforce metrics, traces, structured logging, health checks, queue telemetry, runtime visibility |
+| [`physical-ai-safety-reviewer`](physical-ai-safety-reviewer.md) | Review robotics safety, unsafe actions, sensor confidence, fail-safe logic, escalation paths |
+| [`ai-ran-workflow-generator`](ai-ran-workflow-generator.md) | Generate telecom commissioning flows, KPI workflows, rollback logic, operational SOP structure |
 
 ---
 
