@@ -1,0 +1,28 @@
+name: physical-ai-safety-observability
+
+on:
+  push:
+    paths:
+      - "projects/physical-ai-safety-observability/**"
+      - ".github/workflows/physical-ai-safety-observability.yml"
+  pull_request:
+    paths:
+      - "projects/physical-ai-safety-observability/**"
+      - ".github/workflows/physical-ai-safety-observability.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/physical-ai-safety-observability
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest
+

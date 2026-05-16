@@ -1,0 +1,7 @@
+{
+  "profile": "local",
+  "api_port": 8080,
+  "adapter": "mock_vlm",
+  "metrics": "prometheus_text"
+}
+
