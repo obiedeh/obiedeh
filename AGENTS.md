@@ -1,27 +1,41 @@
 # AGENTS.md
 
-Repository-level operating instructions for AI coding agents (Claude Code, Codex, Cursor, Aider, OpenCode, and others).
+Repository-level operating contract for AI coding agents: Claude Code, Codex, Cursor, Aider, OpenCode, and similar tools.
 
-These rules are agent-neutral. Runtime-specific workflow patterns are at the bottom under "Recommended workflows."
+This file controls how agents work in this repository. It is intentionally strict. The goal is small, reviewable, validated changes, not impressive-looking repo growth.
 
-For the skill catalog and shared engineering standards, see `agent-skills/README.md`. Trigger descriptions in each `agent-skills/*.md` frontmatter are authoritative. If this file and a skill file disagree, the skill file wins.
+For the skill catalog and shared engineering standards, see `agent-skills/README.md`. Trigger descriptions in `agent-skills/*.md` frontmatter are authoritative. If this file and a skill file conflict, the skill file wins for that skill's domain.
 
 ---
 
-## Output format (required for every task)
+## Priority order
 
-At the end of every task, the agent returns:
+When instructions conflict, follow this order:
+
+1. Safety, privacy, and public-repo boundaries
+2. User's explicit task
+3. Relevant `agent-skills/*.md` file
+4. This `AGENTS.md`
+5. Existing repo conventions
+
+Never use lower-priority instructions to bypass higher-priority constraints.
+
+---
+
+## Required final output
+
+Every task ends with this exact structure:
 
 1. **Files changed** — exact paths
 2. **Why** — one line per file
-3. **Tests / checks run** — list with results
-4. **Tests / checks not run** — list with reason
+3. **Tests / checks run** — commands or checks with results
+4. **Tests / checks not run** — reason for each skipped check
 5. **Risks or follow-up** — explicit, not implied
-6. **Review needed?** — yes / no, with what to look at
+6. **Review needed?** — yes / no, with what to inspect
 
-No marketing language. No "production-ready" claims unless validation in (3) supports it.
+No marketing language. No "production-ready" claims unless the checks in section 3 prove it.
 
-### Worked example
+### Example
 
 ```text
 Files changed:
@@ -30,87 +44,100 @@ Files changed:
 
 Why:
 - exporter.py: added retry on transient HTTP 5xx
-- test_exporter.py: covered new retry path
+- test_exporter.py: covered the retry path
 
 Tests / checks run:
 - pytest tests/telemetry — 14 passed
 - ruff check src/telemetry — clean
 
 Tests / checks not run:
-- end-to-end against staging exporter (no staging access from this session)
+- end-to-end against staging exporter — no staging access from this session
 
 Risks / follow-up:
-- retry budget hardcoded at 3 attempts; consider making configurable
+- retry budget is fixed at 3 attempts; consider making it configurable
 
-Review needed? Yes — verify retry budget choice and the exception filter on retry.
+Review needed? Yes — verify retry budget and retryable exception filter.
 ```
 
 ---
 
-## Agent role and scope
+## Agent scope
 
-Use the agent for:
+Use agents for:
 
 - focused implementation patches
-- writing tests
-- scaffolding within an existing pattern
+- tests
+- scaffolding inside an existing pattern
 - migrations and mechanical refactors
 - dependency cleanup
 - formatting and lint fixes
-- applying plans the user has already approved
+- applying an approved plan
 
-Do **not** use the agent as primary driver for:
+Do **not** use agents as the primary driver for:
 
 - broad architecture redesigns
 - unclear product direction
-- safety-critical judgment without explicit human review
+- safety-critical judgment without human review
 - speculative rewrites
 - large autonomous refactors across unrelated modules
 - production deployment decisions
-- adding MCP servers, connectors, or external tools without explicit instruction
-
-### Stop conditions
-
-When the agent detects it has been pulled into a "do not" task, it must:
-
-1. Stop before writing code or files.
-2. State in plain text which "do not" condition triggered.
-3. Propose the smallest scoped task that would unblock progress.
-4. Wait for explicit user confirmation before continuing.
-
-The agent does not silently proceed with a reduced version of the request.
+- MCP servers, connectors, or external tools without explicit instruction
 
 ---
 
-## Execution discipline
+## Stop conditions
 
-Before editing, the agent identifies in writing:
+Stop before editing when any condition below is true:
 
-1. The exact task in one sentence.
-2. The files likely affected (list, not "the codebase").
-3. The smallest safe change.
-4. The tests or checks that validate the change.
-5. Any risk of bloat, duplication, or unnecessary abstraction.
+- The task violates the public/private boundary.
+- The requested change requires secrets, private topology, real credentials, or sensitive logs.
+- The task is broader than the hard budgets below.
+- The task asks for architecture or deployment decisions without enough review context.
+- The safest change is unclear and would require guessing.
+- The change would add abstractions, files, or dependencies without immediate operational value.
 
-Prefer small, reviewable patches over broad rewrites.
+When stopping, return:
 
-### Hard budgets
+1. The triggered stop condition
+2. Why continuing would be risky
+3. The smallest safe task that would unblock progress
+4. What confirmation or missing input is needed
 
-These are constraints, not guidelines. Exceeding them requires explicit user authorization in the same turn:
+Do not silently proceed with a reduced version of the task.
 
-- **Patch size:** ≤ 200 lines changed per task
-- **Files touched:** ≤ 5 files per task
-- **New files created:** ≤ 2 per task
+---
+
+## Before editing
+
+Before changing files, identify:
+
+1. The exact task in one sentence
+2. The files likely affected
+3. The smallest safe change
+4. The checks that validate the change
+5. Any bloat, duplication, privacy, or abstraction risk
+
+Prefer one clean patch over a broad rewrite. Prefer deletion over addition when behavior can be preserved.
+
+---
+
+## Hard budgets
+
+These are limits, not suggestions. Exceeding them requires explicit user approval in the same task.
+
+- **Patch size:** ≤ 200 changed lines
+- **Files touched:** ≤ 5 files
+- **New files:** ≤ 2
 - **New dependencies:** 0 without approval
-- **New top-level modules or packages:** 0 without approval
+- **New top-level modules/packages:** 0 without approval
 
-When a task genuinely requires more, the agent splits it and asks which slice to do first.
+If the task needs more, split it and ask which slice to do first.
 
 ---
 
 ## Anti-bloat rules
 
-Do not create:
+Do not add:
 
 - wrapper classes that add no behavior
 - placeholder modules
@@ -119,61 +146,62 @@ Do not create:
 - oversized READMEs
 - generic enterprise scaffolding
 - unused abstractions
-- fake observability (log lines that nothing reads, metrics never plotted)
-- fake production readiness (Dockerfiles for services that don't deploy, CI for code that doesn't run)
+- fake observability
+- fake production readiness
 - files that only restate existing docs
 
-Every new file must justify at least one of:
+Every new file must justify at least one:
 
-- operational necessity (something breaks without it)
-- reliability improvement (measurable)
-- maintainability improvement (concrete)
-- observability improvement (with a named consumer)
-- deployment-readiness improvement (with a named target)
+- **Operational necessity:** something breaks without it
+- **Reliability improvement:** measurable failure reduction
+- **Maintainability improvement:** concrete simplification
+- **Observability improvement:** named consumer and signal
+- **Deployment-readiness improvement:** named target and validation path
 
-If it does not justify one, do not create it.
+If none apply, do not create the file.
 
 ---
 
-## Token and context efficiency
+## Token and context discipline
 
 Prefer:
 
 - patches over full rewrites
-- exact file references over "the codebase"
-- checklists over long prose
+- exact file paths over "the codebase"
+- checklists over essays
 - tests over explanations
-- task-specific context over project-wide context
+- task-specific context over repo-wide context
 
 Avoid:
 
-- dumping full files unless required
+- dumping full files unless necessary
 - repeating unchanged code
 - architecture essays
 - verbose comments
 - duplicate documentation
 - generic best-practice filler
-- redundant tool calls (read once, edit precisely)
+- redundant tool calls
 
-When in doubt, read less and ask.
+Read only what is needed. Edit only what is necessary. Validate what changed.
 
 ---
 
 ## Skill usage
 
-The skill catalog lives in `agent-skills/README.md` and each `agent-skills/*.md` file.
+The skill catalog lives in `agent-skills/README.md`. Individual skills live in `agent-skills/*.md`.
 
-Skill selection rules:
+Rules:
 
-- Use the skill that most narrowly matches the task. If two skills could fire, pick the one with the more specific trigger.
-- If no skill applies, keep the patch minimal and state in the output format why no skill was needed.
-- Skills compose with these AGENTS.md rules; they do not override the hard budgets or anti-bloat rules.
+- Use the narrowest matching skill.
+- If two skills apply, use the one with the more specific trigger.
+- If no skill applies, say so in the final output and keep the patch minimal.
+- Skill files add constraints; they do not override hard budgets, anti-bloat rules, or public/private boundaries.
 
 ---
 
-## Public vs private boundaries
+## Public vs private boundary
 
-This is a public repository. It contains methodology, standards, generic checklists, and non-sensitive engineering patterns only.
+This is a public repository. It may contain methodology, standards, generic checklists, and non-sensitive engineering patterns.
 
 Never add:
 
@@ -189,43 +217,63 @@ Never add:
 - hidden routing prompts
 - sensitive operational SOPs
 
-If a task requires those details, stop and recommend moving the work to a private repository. Do not redact and partially commit.
+If the task needs those details, stop and recommend a private repository. Do not partially redact and commit.
 
 ---
 
 ## Testing and validation
 
-For code changes, run or propose the narrowest relevant validation:
+Run the narrowest relevant check:
 
-- unit tests for logic changes
-- lint and type checks for structural changes
-- smoke tests for service changes
-- config validation for deployment changes
-- doc link and path checks for docs changes
+- logic change → unit tests
+- structural change → lint/type checks
+- service change → smoke test
+- deployment/config change → config validation
+- docs change → link/path check
 
-Do not claim production readiness unless the validation listed above was actually performed. If it was skipped, list it under "Tests / checks not run" with a reason.
+If a check cannot run, list it under **Tests / checks not run** with the reason. Missing validation must be visible, not buried.
 
 ---
 
-## Recommended workflows (optional)
-
-These are conventions, not requirements. Pick the one that matches the agents available in the session.
+## Recommended workflows
 
 ### Single-agent
 
-A capable agent (Claude Code, Codex, Cursor) handles design and implementation in one session. Apply the execution discipline checklist on every task; the agent's own review pass replaces a second agent.
+A capable agent handles design, implementation, and self-review for small scoped tasks. It must still follow the before-editing checklist, hard budgets, and final output format.
 
-### Two-agent (design / implement)
+### Two-agent: design / implement
 
-When two agents are used, a common split is:
+Use this when architecture, safety, or production-readiness risk is meaningful.
 
-- **Design agent:** produces a plan, identifies affected files, drafts tests, calls out risks.
-- **Implementation agent:** applies the plan as a minimal patch, runs tests, returns the output format above.
+- **Design agent:** plan, affected files, tests, risks, acceptance criteria
+- **Implementation agent:** minimal patch, validation, final output
+- **Design agent:** final review before merge
 
-The design agent performs the final review before changes land.
+Default split when both are available:
+
+```text
+Claude Code = think, design, review
+Codex = implement, patch, test
+Claude Code = final hardening check
+```
+
+---
+
+## Merge standard
+
+A change is mergeable only when:
+
+- scope is clear
+- diff is within budget or explicitly approved
+- no public/private boundary is crossed
+- relevant skill was used or explicitly ruled out
+- checks were run or missing checks are explained
+- risks and review needs are documented
+
+If these are not true, the work is not done.
 
 ---
 
 ## Version
 
-AGENTS.md — last reviewed against the Agent Skills spec on 2026-05-16. Update this date when this file changes.
+AGENTS.md — last reviewed against the Agent Skills spec on 2026-05-16.
