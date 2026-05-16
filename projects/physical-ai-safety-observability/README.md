@@ -82,7 +82,7 @@ The platform emits structured events with:
 - human-review recommendation
 - telemetry context
 
-See `docs/sample_event_schema.md` and `examples/sample_event.json`.
+See `docs/event_schema.md` and `examples/sample_event.json`.
 
 ## Model Integration Strategy
 
@@ -97,6 +97,18 @@ Real adapters should be added behind the same interface for:
 - future RTSP/live camera pipelines
 
 Do not hardwire the app to one model. Keep inference replaceable.
+
+Cosmos-Reason2 is the recommended first real backend. Use it through the dedicated adapter
+that targets NVIDIA NIM's OpenAI-compatible Chat Completions API:
+
+```bash
+python -m edge.worker \
+  --source examples/sample_source.json \
+  --backend http://127.0.0.1:8080 \
+  --adapter cosmos-reason2 \
+  --adapter-endpoint http://127.0.0.1:8000/v1 \
+  --model nvidia/cosmos-reason2-2b
+```
 
 ## Production Roadmap
 
