@@ -42,6 +42,22 @@ Claude Code = final production-readiness check
 
 ---
 
+# Skill Routing
+
+| If the question is... | Use |
+| --- | --- |
+| Is this safe to deploy? | `production-architecture-reviewer` |
+| Is this clean? | `repo-hardener` |
+| Why is this failing now? | `runtime-stability-debugger` |
+| How do I get this running on the edge? | `edge-ai-deployer` |
+| What telemetry should this emit? | `observability-generator` |
+| Could this hurt someone or break a robot? | `physical-ai-safety-reviewer` |
+| How should this RAN workflow be structured? | `ai-ran-workflow-generator` |
+| Is this RAG / ops copilot trustworthy? | `rag-telemetry-copilot-reviewer` |
+| Will this sim policy transfer to hardware? | `sim-to-real-validator` |
+
+---
+
 # Public vs Private Skill Strategy
 
 ## Public Skills
@@ -80,12 +96,14 @@ Public skills should NOT contain:
 | Skill | Purpose |
 |---|---|
 | [`production-architecture-reviewer`](production-architecture-reviewer.md) | Detect fake scalability, abstraction creep, weak service boundaries, poor deployment realism, and missing observability |
-| [`repo-hardening-refactor`](repo-hardening-refactor.md) | Remove dead code, reduce duplication, simplify modules, prevent AI-generated repo sprawl |
+| [`repo-hardener`](repo-hardener.md) | Remove dead code, reduce duplication, simplify modules, prevent AI-generated repo sprawl |
 | [`runtime-stability-debugger`](runtime-stability-debugger.md) | Review GPU pressure, KV cache growth, queue depth, streaming degradation, repeated-run instability |
 | [`edge-ai-deployer`](edge-ai-deployer.md) | Validate Jetson, RTX, CUDA, Docker, TensorRT, vLLM, runtime health, deployment readiness |
 | [`observability-generator`](observability-generator.md) | Enforce metrics, traces, structured logging, health checks, queue telemetry, runtime visibility |
 | [`physical-ai-safety-reviewer`](physical-ai-safety-reviewer.md) | Review robotics safety, unsafe actions, sensor confidence, fail-safe logic, escalation paths |
 | [`ai-ran-workflow-generator`](ai-ran-workflow-generator.md) | Generate telecom commissioning flows, KPI workflows, rollback logic, operational SOP structure |
+| [`rag-telemetry-copilot-reviewer`](rag-telemetry-copilot-reviewer.md) | Review RAG pipelines, telemetry copilots, retrieval quality, and hallucination risk |
+| [`sim-to-real-validator`](sim-to-real-validator.md) | Validate sim-to-real transfer assumptions, latency realism, and robotics deployment readiness |
 
 ---
 
