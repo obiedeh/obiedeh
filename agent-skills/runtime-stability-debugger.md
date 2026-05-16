@@ -1,12 +1,13 @@
 # runtime-stability-debugger
 
-Use when touching inference runtime, GPU behavior, queues, streaming, latency, memory pressure,
-repeated-run instability, or long-lived workers.
+Use when touching inference runtime, GPU behavior, KV cache growth, queues, streaming, latency,
+memory pressure, repeated-run instability, or long-lived workers.
 
 ## Review Focus
 
 - Queue depth, dropped work, latency p95/p99, and memory pressure are observable.
 - Backpressure, timeout, retry, and shutdown behavior are explicit.
+- KV cache eviction, context growth, and streaming degradation are identified before they become OOM.
 - Runtime degradation changes confidence or operator review state when safety matters.
 - GPU/accelerator assumptions are configurable and not hidden in code.
 
@@ -19,4 +20,3 @@ repeated-run instability, or long-lived workers.
 ## Output
 
 Summarize runtime risk, measured behavior, and the next smallest stability fix.
-
