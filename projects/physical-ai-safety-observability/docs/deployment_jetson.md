@@ -11,8 +11,8 @@ through an OpenAI-compatible Chat Completions API. Wire it through the dedicated
 ```bash
 export COSMOS_API_KEY=...
 python -m edge.worker \
+  --config configs/cosmos_reasoning.json \
   --source examples/sample_source.json \
-  --backend http://127.0.0.1:8080 \
   --adapter cosmos-reason2 \
   --adapter-endpoint http://127.0.0.1:8000/v1 \
   --model nvidia/cosmos-reason2-2b
@@ -23,3 +23,16 @@ For the larger NIM, use `--model nvidia/cosmos-reason2-8b`.
 
 Runtime telemetry includes GPU memory and thermal pressure fields so future Jetson probes can
 reduce confidence and force operator review when the edge device is degraded.
+
+For RTSP cameras, install the optional OpenCV profile and set the source file:
+
+```json
+{
+  "camera_id": "cell-a-camera-1",
+  "name": "Cell A RTSP",
+  "source_type": "rtsp",
+  "source_uri": "rtsp://user:pass@camera/stream1",
+  "frame_count": 5,
+  "frame_stride": 30
+}
+```
