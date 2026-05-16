@@ -36,10 +36,11 @@ class OpenAICompatibleAdapter(VLMAdapter):
         )
         response.raise_for_status()
         raw = response.json()
+        parsed = parse_adapter_response(raw)
         return {
             "adapter_name": self.adapter_name,
             "model_version": self.model_version,
-            "detections": raw.get("detections", []),
+            "detections": parsed.get("detections", []),
             "raw_response": raw,
         }
 
@@ -109,7 +110,7 @@ class CosmosReason2Adapter(OpenAICompatibleAdapter):
         response.raise_for_status()
         raw = response.json()
         assistant_text = _extract_assistant_text(raw)
-        parsed = _parse_answer_json(assistant_text)
+        parsed = parse_adapter_response(raw)
         return {
             "adapter_name": self.adapter_name,
             "model_version": self.model_version,
@@ -133,6 +134,7 @@ def _extract_assistant_text(raw: dict[str, Any]) -> str:
 
 
 def _parse_answer_json(text: str) -> dict[str, Any]:
+    text = _strip_code_fence(text)
     answer_match = re.search(r"<answer>\s*(.*?)\s*</answer>", text, flags=re.DOTALL)
     candidate = answer_match.group(1) if answer_match else text
     json_match = re.search(r"\{.*\}", candidate, flags=re.DOTALL)
@@ -147,4 +149,31 @@ def _parse_answer_json(text: str) -> dict[str, Any]:
     detections = parsed.get("detections", [])
     if not isinstance(detections, list):
         parsed["detections"] = []
+    parsed["detections"] = [
+        detection for detection in detections if isinstance(detection, dict)
+    ]
     return parsed
+
+
+def parse_adapter_response(raw: dict[str, Any]) -> dict[str, Any]:
+    direct = raw.get("detections")
+    if isinstance(direct, list):
+        return {"detections": [item for item in direct if isinstance(item, dict)]}
+
+    assistant_text = _extract_assistant_text(raw)
+    if assistant_text:
+        return _parse_answer_json(assistant_text)
+
+    output = raw.get("output")
+    if isinstance(output, dict):
+        detections = output.get("detections", [])
+        if isinstance(detections, list):
+            return {"detections": [item for item in detections if isinstance(item, dict)]}
+    return {"detections": []}
+
+
+def _strip_code_fence(text: str) -> str:
+    fence_match = re.search(r"```(?:json)?\s*(.*?)\s*```", text, flags=re.DOTALL)
+    if fence_match:
+        return fence_match.group(1)
+    return text

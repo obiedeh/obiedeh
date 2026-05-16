@@ -22,8 +22,11 @@ class RuntimeStatus(StrEnum):
 class RuntimeContext(BaseModel):
     frames_processed: int = 0
     latency_ms: float = 0.0
+    latency_p95_ms: float = 0.0
+    latency_p99_ms: float = 0.0
     queue_depth: int = 0
     dropped_frames: int = 0
+    memory_pressure: float = 0.0
     gpu_memory_pressure: float = 0.0
     thermal_pressure: float = 0.0
     runtime_status: RuntimeStatus = RuntimeStatus.NOMINAL
@@ -65,6 +68,8 @@ class SafetyEvent(BaseModel):
 class Incident(BaseModel):
     incident_id: str
     camera_id: str
+    rule_id: str | None = None
+    grouping_severity: Severity | None = None
     opened_at: datetime
     updated_at: datetime
     highest_severity: Severity

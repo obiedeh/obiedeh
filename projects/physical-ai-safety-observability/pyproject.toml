@@ -9,6 +9,7 @@ description = "Runtime-aware Physical AI safety observability pipeline"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+  "alembic>=1.13",
   "fastapi>=0.110",
   "httpx>=0.27",
   "pydantic>=2.6",
@@ -20,9 +21,12 @@ dev = [
   "pytest>=8.0",
   "ruff>=0.4",
 ]
+opencv = [
+  "opencv-python-headless>=4.9",
+]
 
 [tool.setuptools]
-py-modules = []
+py-modules = ["runtime_settings"]
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -43,4 +47,3 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-

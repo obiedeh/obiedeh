@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from events.schemas import Incident, SafetyEvent, Severity
 
 SEVERITY_RANK = {
@@ -11,7 +13,18 @@ SEVERITY_RANK = {
 def incident_id_for(event: SafetyEvent) -> str:
     if event.incident_id:
         return event.incident_id
-    return f"{event.camera_id}:{event.rule_id}"
+    bucket = event.timestamp.strftime("%Y%m%dT%H%M%S")
+    return f"{event.camera_id}:{event.rule_id}:{event.severity}:{bucket}"
+
+
+def can_group_event(incident: Incident, event: SafetyEvent, window_seconds: int) -> bool:
+    if incident.camera_id != event.camera_id:
+        return False
+    if incident.rule_id != event.rule_id:
+        return False
+    if incident.grouping_severity != event.severity:
+        return False
+    return abs(event.timestamp - incident.updated_at) <= timedelta(seconds=window_seconds)
 
 
 def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> Incident:
@@ -22,6 +35,8 @@ def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> 
         return Incident(
             incident_id=incident_id,
             camera_id=event.camera_id,
+            rule_id=event.rule_id,
+            grouping_severity=event.severity,
             opened_at=event.timestamp,
             updated_at=event.timestamp,
             highest_severity=event.severity,
@@ -36,4 +51,3 @@ def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> 
     incident.timeline.append(event)
     incident.timeline.sort(key=lambda item: item.timestamp)
     return incident
-
