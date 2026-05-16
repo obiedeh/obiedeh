@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  edge-worker:
+    build: .
+    depends_on:
+      api:
+        condition: service_healthy
+    command:
+      - python
+      - -m
+      - edge.worker
+      - --source
+      - examples/sample_source.json
+      - --backend
+      - http://api:8080
+
