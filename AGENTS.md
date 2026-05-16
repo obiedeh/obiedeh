@@ -118,13 +118,13 @@ Use `agent-skills/README.md` to choose the right skill.
 
 Use these skills as execution constraints:
 
-- `production-architecture-reviewer`: when implementation touches architecture, services, or deployment structure
-- `repo-hardening-refactor`: when reducing bloat, duplication, dead code, or unnecessary abstractions
-- `runtime-stability-debugger`: when touching inference runtime, GPU behavior, KV cache growth, queues, streaming, latency, or memory behavior
-- `edge-ai-deployer`: when touching Jetson, RTX, CUDA, Docker, TensorRT, vLLM, or edge deployment files
-- `observability-generator`: when adding logs, metrics, traces, health checks, queues, alerts, or dashboards
-- `physical-ai-safety-reviewer`: when touching robotics, perception, sensors, unsafe actions, human override, or fail-safe logic
-- `ai-ran-workflow-generator`: when touching telecom workflows, commissioning, KPI analysis, rollback, CLI validation, or AI-RAN logic
+- `production-architecture-reviewer`: when implementation touches architecture, services, deployment structure, persistence, runtime boundaries, or production-readiness claims
+- `repo-hardening-refactor`: when reducing bloat, duplication, dead code, stale docs, unnecessary abstractions, or AI-generated repo sprawl
+- `runtime-stability-debugger`: when touching inference runtime, GPU behavior, KV cache growth, queues, streaming, latency, memory pressure, repeated-run instability, or long-lived workers
+- `edge-ai-deployer`: when touching Jetson, RTX, CUDA, Docker, TensorRT, vLLM, NIM, RTSP/video input, or edge deployment files
+- `observability-generator`: when adding logs, metrics, traces, health checks, queue telemetry, alerts, dashboards, or runtime visibility
+- `physical-ai-safety-reviewer`: when touching robotics, perception, sensors, unsafe actions, human override, incident review, evidence chains, or fail-safe logic
+- `ai-ran-workflow-generator`: when touching telecom workflows, commissioning, KPI analysis, rollback, CLI validation, network observability, or AI-RAN logic
 
 If no skill applies, keep the patch minimal and explain why no skill was needed.
 
