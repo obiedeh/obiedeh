@@ -9,10 +9,13 @@ This project turns camera/video input, safety rules, runtime telemetry, and mult
 This repository now includes a runnable production-grade skeleton:
 
 - FastAPI backend for health, camera registration, event ingestion, incident timelines, and metrics
-- Edge worker CLI for video/RTSP-style frame sampling
+- SQLite-backed event, camera, and incident persistence
+- Alembic-managed database schema migrations
+- Edge worker CLI for synthetic, video-file, and RTSP-style frame sampling
 - Mock VLM adapter that produces structured detections without pretending to be real AI
+- OpenAI-compatible and Cosmos-Reason2 adapter paths with hardened response parsing
 - Safety policy engine for PPE, restricted zones, proximity risk, and unsafe events
-- Telemetry hooks for latency, event counts, and runtime snapshots
+- Telemetry hooks for latency p95/p99, event counts, memory pressure, queue depth, dropped frames, and runtime snapshots
 - Sample event schemas and demo payloads
 - Tests, lint configuration, Dockerfile, Compose file, and CI workflow
 
@@ -54,7 +57,10 @@ uvicorn api.main:app --reload --port 8080
 In another terminal:
 
 ```bash
-python -m edge.worker --source examples/sample_source.json --backend http://127.0.0.1:8080
+python -m edge.worker \
+  --config configs/local.json \
+  --source examples/sample_source.json \
+  --backend http://127.0.0.1:8080
 ```
 
 Open:
@@ -63,10 +69,16 @@ Open:
 - OpenAPI docs: `http://127.0.0.1:8080/docs`
 - Metrics: `http://127.0.0.1:8080/metrics`
 
+Apply migrations manually when needed:
+
+```bash
+PHYSICAL_AI_CONFIG=configs/local.json alembic upgrade head
+```
+
 ## Docker
 
 ```bash
-docker compose up --build
+docker compose --profile demo up --build
 ```
 
 ## Safety Event Model
@@ -103,12 +115,44 @@ that targets NVIDIA NIM's OpenAI-compatible Chat Completions API:
 
 ```bash
 python -m edge.worker \
+  --config configs/cosmos_reasoning.json \
   --source examples/sample_source.json \
   --backend http://127.0.0.1:8080 \
   --adapter cosmos-reason2 \
   --adapter-endpoint http://127.0.0.1:8000/v1 \
   --model nvidia/cosmos-reason2-2b
 ```
+
+## Runtime Paths
+
+Demo path:
+
+```bash
+uvicorn api.main:app --reload --port 8080
+python -m edge.worker --config configs/local.json --source examples/sample_source.json
+```
+
+Jetson path:
+
+```bash
+PHYSICAL_AI_CONFIG=configs/jetson.json uvicorn api.main:app --host 0.0.0.0 --port 8080
+python -m edge.worker --config configs/jetson.json --source examples/sample_source.json
+```
+
+Real VLM path:
+
+```bash
+export COSMOS_API_KEY=...
+python -m edge.worker --config configs/cosmos_reasoning.json --source examples/sample_source.json
+```
+
+Video or RTSP input uses the optional OpenCV dependency:
+
+```bash
+pip install -e .[opencv]
+```
+
+Set `source_type` to `video_file` or `rtsp` in the source JSON and provide the file path or RTSP URI in `source_uri`.
 
 ## Production Roadmap
 

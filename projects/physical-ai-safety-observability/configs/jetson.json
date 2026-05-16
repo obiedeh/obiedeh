@@ -1,8 +1,18 @@
 {
-  "profile": "jetson",
-  "adapter": "openai_compatible",
-  "endpoint": "http://127.0.0.1:8000/v1",
-  "model": "local-vlm",
-  "notes": "Keep GPU dependencies outside CI and mount model services at deployment time."
+  "app": {
+    "database_path": "data/jetson-observability.sqlite3",
+    "incident_window_seconds": 900,
+    "api_host": "0.0.0.0",
+    "api_port": 8080,
+    "log_level": "INFO",
+    "log_format": "json"
+  },
+  "worker": {
+    "backend": "http://127.0.0.1:8080",
+    "adapter": "openai-compatible",
+    "adapter_endpoint": "http://127.0.0.1:8000/v1",
+    "model": "local-vlm",
+    "api_key_env": "COSMOS_API_KEY",
+    "post_events": true
+  }
 }
-

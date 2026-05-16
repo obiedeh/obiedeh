@@ -10,12 +10,13 @@ uvicorn api.main:app --reload --port 8080
 In another terminal:
 
 ```bash
-python -m edge.worker --source examples/sample_source.json --backend http://127.0.0.1:8080
+python -m edge.worker --config configs/local.json --source examples/sample_source.json
 ```
 
 Docker:
 
 ```bash
-docker compose up --build
+docker compose --profile demo up --build
 ```
 
+The local profile stores SQLite data in `data/local-observability.sqlite3`.
