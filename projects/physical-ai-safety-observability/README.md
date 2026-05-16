@@ -1,71 +1,121 @@
 # Physical AI Safety Observability
 
-Edge-based multimodal safety and operational observability workflows for industrial and Physical AI environments.
+Edge-first safety observability platform for robotics, industrial workcells, and Physical AI environments.
 
-This project will explore how vision-language models, edge inference, and telemetry-aware workflows can support safety visibility in robotics and industrial environments.
+This project turns camera/video input, safety rules, runtime telemetry, and multimodal model outputs into structured safety events that an operator can review. The goal is not demo object detection. The goal is operational awareness that can survive real edge deployment.
 
-The focus is not simply object detection.
+## What Works Now
 
-The focus is operational awareness:
+This repository now includes a runnable production-grade skeleton:
 
-- PPE verification
-- unsafe-zone detection
-- proximity awareness
-- safety policy validation
-- incident summarization
-- edge video intelligence
-- operator-facing safety workflows
+- FastAPI backend for health, camera registration, event ingestion, incident timelines, and metrics
+- Edge worker CLI for video/RTSP-style frame sampling
+- Mock VLM adapter that produces structured detections without pretending to be real AI
+- Safety policy engine for PPE, restricted zones, proximity risk, and unsafe events
+- Telemetry hooks for latency, event counts, and runtime snapshots
+- Sample event schemas and demo payloads
+- Tests, lint configuration, Dockerfile, Compose file, and CI workflow
 
----
+## Architecture
 
-## Core Direction
+```text
+Camera / Video Source
+        |
+        v
+Edge Worker -> VLM Adapter -> Safety Policy Engine -> FastAPI Backend
+        |                                                |
+        v                                                v
+ Runtime Telemetry                              Operator/Event APIs
+```
 
-This project is intended to combine:
+## Repository Layout
 
-- Cosmos-style multimodal reasoning
-- edge video inference
-- Jetson deployment
-- operational telemetry
-- industrial safety visibility
-- Physical AI observability
-- human-in-the-loop review workflows
+```text
+api/          FastAPI application and API routes
+edge/         Edge worker, frame sampling, model adapter interfaces
+rules/        Safety policy evaluation logic
+telemetry/    Runtime metrics and observability helpers
+configs/      Local and Jetson-oriented config examples
+examples/     Demo events and sample video-source inputs
+docs/         Architecture, deployment, schemas, and roadmap
+tests/        Unit tests for API and safety logic
+```
 
----
+## Quick Start
 
-## Planned Capabilities
+```bash
+cd projects/physical-ai-safety-observability
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
+uvicorn api.main:app --reload --port 8080
+```
 
-- PPE verification workflows
-- restricted-zone awareness
-- multimodal safety event analysis
-- edge camera stream inference
-- event summarization and reporting
-- operational alert workflows
-- telemetry-linked incident context
+In another terminal:
 
----
+```bash
+python -m edge.worker --source examples/sample_source.json --backend http://127.0.0.1:8080
+```
 
-## Evidence Targets
+Open:
 
-Planned evidence artifacts:
+- API health: `http://127.0.0.1:8080/health`
+- OpenAPI docs: `http://127.0.0.1:8080/docs`
+- Metrics: `http://127.0.0.1:8080/metrics`
 
-- camera inference screenshots
-- event timeline summaries
-- edge runtime benchmark reports
-- latency and throughput measurements
-- GPU memory observations
-- deployment architecture diagrams
-- operational workflow examples
+## Docker
 
----
+```bash
+docker compose up --build
+```
+
+## Safety Event Model
+
+The platform emits structured events with:
+
+- camera ID
+- timestamp
+- rule ID
+- severity
+- confidence
+- evidence
+- human-review recommendation
+- telemetry context
+
+See `docs/sample_event_schema.md` and `examples/sample_event.json`.
+
+## Model Integration Strategy
+
+The current VLM adapter is intentionally mocked. That is not a weakness. It is the correct engineering move at this stage.
+
+Real adapters should be added behind the same interface for:
+
+- NVIDIA Cosmos Reasoning / VLM endpoints
+- Gemma-style multimodal endpoints
+- local vLLM OpenAI-compatible APIs
+- Jetson-hosted inference services
+- future RTSP/live camera pipelines
+
+Do not hardwire the app to one model. Keep inference replaceable.
+
+## Production Roadmap
+
+1. Connect RTSP cameras and real frame extraction
+2. Add Cosmos/VLM adapter using local OpenAI-compatible endpoint
+3. Add zone geometry from camera calibration files
+4. Add operator dashboard
+5. Add Prometheus/Grafana deployment profile
+6. Benchmark Jetson memory, latency, and sustained runtime stability
+7. Add human-in-the-loop review workflow
+8. Add incident export and audit trails
 
 ## Positioning
 
 This project supports a broader engineering focus around:
 
-- Physical AI
-- Edge AI
-- multimodal AI systems
-- industrial observability
-- operational intelligence
-- deployable edge inference systems
-- AI-assisted safety workflows
+- Physical AI safety
+- Edge AI observability
+- robotics workcell monitoring
+- multimodal inference systems
+- deployable Jetson AI pipelines
+- operator-facing safety intelligence
