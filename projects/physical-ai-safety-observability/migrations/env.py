@@ -16,12 +16,13 @@ target_metadata = None
 
 def _database_url() -> str:
     configured = config.get_main_option("sqlalchemy.url")
-    settings = load_settings()
-    database_path = settings.app.database_path
+    if configured:
+        return configured
+    database_path = load_settings().app.database_path
     if database_path == ":memory:":
         return "sqlite:///:memory:"
     Path(database_path).parent.mkdir(parents=True, exist_ok=True)
-    return f"sqlite:///{database_path}" if configured else f"sqlite:///{database_path}"
+    return f"sqlite:///{database_path}"
 
 
 def run_migrations_offline() -> None:

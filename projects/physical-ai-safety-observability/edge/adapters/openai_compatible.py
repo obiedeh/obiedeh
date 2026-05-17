@@ -1,3 +1,4 @@
+import base64
 import json
 import re
 from typing import Any
@@ -10,29 +11,42 @@ from edge.adapters.base import VLMAdapter
 class OpenAICompatibleAdapter(VLMAdapter):
     adapter_name = "openai_compatible"
 
-    def __init__(self, endpoint: str, model: str, api_key: str | None = None) -> None:
+    def __init__(self, endpoint: str, model: str, api_key: str | None = None, timeout: float = 20.0) -> None:
         self.endpoint = endpoint.rstrip("/")
         self.model_version = model
         self.api_key = api_key
+        self.timeout = timeout
 
     def analyze_frame(self, frame_context: dict[str, Any]) -> dict[str, Any]:
         headers = {}
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
-        prompt = (
+        text_prompt = (
             "Return JSON detections for Physical AI safety rules. "
-            f"Frame context: {frame_context['camera_id']} {frame_context['frame_id']}"
+            f"camera_id={frame_context['camera_id']}, frame_id={frame_context['frame_id']}. "
+            'Schema: {"detections":[{"label":"person|robot|pallet|cart|box|unsafe_event",'
+            '"confidence":0.0,"bbox":[x1,y1,x2,y2],"ppe":{"hard_hat":true,"vest":true},'
+            '"blocking_emergency_path":false}]}'
         )
+        content: list[dict[str, Any]] = []
+        frame_bytes = frame_context.get("frame_bytes")
+        media_url = frame_context.get("media_url") or frame_context.get("image_url")
+        if frame_bytes:
+            b64 = base64.b64encode(frame_bytes).decode("ascii")
+            content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}})
+        elif media_url:
+            content.append({"type": "image_url", "image_url": {"url": media_url}})
+        content.append({"type": "text", "text": text_prompt})
         payload = {
             "model": self.model_version,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": [{"role": "user", "content": content}],
             "temperature": 0,
         }
         response = httpx.post(
             f"{self.endpoint}/chat/completions",
             json=payload,
             headers=headers,
-            timeout=20,
+            timeout=self.timeout,
         )
         response.raise_for_status()
         raw = response.json()
@@ -53,8 +67,9 @@ class CosmosReason2Adapter(OpenAICompatibleAdapter):
         endpoint: str,
         model: str = "nvidia/cosmos-reason2-2b",
         api_key: str | None = None,
+        timeout: float = 60.0,
     ) -> None:
-        super().__init__(endpoint=endpoint, model=model, api_key=api_key)
+        super().__init__(endpoint=endpoint, model=model, api_key=api_key, timeout=timeout)
 
     def analyze_frame(self, frame_context: dict[str, Any]) -> dict[str, Any]:
         headers = {"Accept": "application/json", "Content-Type": "application/json"}
@@ -105,7 +120,7 @@ class CosmosReason2Adapter(OpenAICompatibleAdapter):
             f"{self.endpoint}/chat/completions",
             json=payload,
             headers=headers,
-            timeout=60,
+            timeout=self.timeout,
         )
         response.raise_for_status()
         raw = response.json()

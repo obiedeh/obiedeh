@@ -57,6 +57,13 @@ class SafetyEvent(BaseModel):
     summary: str
     incident_id: str | None = None
 
+    @field_validator("timestamp", mode="before")
+    @classmethod
+    def ensure_utc(cls, value: Any) -> Any:
+        if isinstance(value, datetime) and value.tzinfo is None:
+            return value.replace(tzinfo=UTC)
+        return value
+
     @field_validator("incident_id", mode="before")
     @classmethod
     def empty_incident_is_none(cls, value: str | None) -> str | None:
