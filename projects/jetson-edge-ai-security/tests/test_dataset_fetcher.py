@@ -3,9 +3,9 @@ from zipfile import ZipFile
 
 import pytest
 
+import jetson_edge_ai_security.datasets.fetcher as fetcher
 from jetson_edge_ai_security.datasets.catalog import DatasetSpec
 from jetson_edge_ai_security.datasets.fetcher import DatasetDownloadError, prepare_dataset
-import jetson_edge_ai_security.datasets.fetcher as fetcher
 
 
 def test_prepare_dataset_downloads_extracts_and_finds_csv(

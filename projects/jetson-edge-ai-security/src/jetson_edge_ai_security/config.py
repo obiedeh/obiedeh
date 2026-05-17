@@ -37,51 +37,11 @@ class AppConfig(BaseModel):
 
 
 def load_config(path: str | Path) -> AppConfig:
+    import yaml
+
     config_path = Path(path)
+    if not config_path.exists():
+        raise FileNotFoundError(f"Config file not found: {config_path}")
     with config_path.open("r", encoding="utf-8") as handle:
-        data = _load_yaml_like(handle.read())
+        data: dict[str, Any] = yaml.safe_load(handle) or {}
     return AppConfig.model_validate(data)
-
-
-def _load_yaml_like(text: str) -> dict[str, Any]:
-    try:
-        import yaml
-    except ImportError:
-        return _parse_simple_yaml(text)
-    return yaml.safe_load(text) or {}
-
-
-def _parse_simple_yaml(text: str) -> dict[str, Any]:
-    """Parse the simple nested key/value YAML used by the default config."""
-
-    data: dict[str, Any] = {}
-    current_section: dict[str, Any] | None = None
-    for raw_line in text.splitlines():
-        line = raw_line.split("#", 1)[0].rstrip()
-        if not line.strip():
-            continue
-        if not raw_line.startswith((" ", "\t")) and line.endswith(":"):
-            section_name = line[:-1].strip()
-            current_section = {}
-            data[section_name] = current_section
-            continue
-        if current_section is None or ":" not in line:
-            raise ValueError("Fallback config parser only supports one-level nested key/value YAML")
-        key, value = line.strip().split(":", 1)
-        current_section[key.strip()] = _coerce_scalar(value.strip())
-    return data
-
-
-def _coerce_scalar(value: str) -> Any:
-    if value.lower() in {"true", "false"}:
-        return value.lower() == "true"
-    if value == "":
-        return ""
-    try:
-        return int(value)
-    except ValueError:
-        pass
-    try:
-        return float(value)
-    except ValueError:
-        return value.strip("'\"")

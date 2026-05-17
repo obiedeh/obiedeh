@@ -53,8 +53,8 @@ COLUMN_ALIASES: dict[str, tuple[str, ...]] = {
     "tcp_flags": ("tcp_flags", "tcp.flags", "flags"),
     "icmp_type": ("icmp_type", "icmp.type"),
     "flow_id": ("flow_id", "flow.id", "uid", "tcp.stream", "udp.stream"),
-    "attack_label": ("attack_label", "label", "attack_label", "Attack_label", "class", "target"),
-    "attack_type": ("attack_type", "attack_type", "Attack_type", "category", "subcategory", "traffic"),
+    "attack_label": ("attack_label", "label", "Attack_label", "class", "target"),
+    "attack_type": ("attack_type", "Attack_type", "category", "subcategory", "traffic"),
 }
 
 
@@ -95,7 +95,8 @@ class CsvReplaySource(TrafficSource):
         should_close = self._handle is None
         if should_close:
             self.open()
-        assert self._handle is not None
+        if self._handle is None:
+            raise RuntimeError("CsvReplaySource handle is None after open()")
 
         try:
             reader = csv.DictReader(self._handle)
