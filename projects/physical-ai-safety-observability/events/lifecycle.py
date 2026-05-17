@@ -27,11 +27,13 @@ def can_group_event(incident: Incident, event: SafetyEvent, window_seconds: int)
     return abs(event.timestamp - incident.updated_at) <= timedelta(seconds=window_seconds)
 
 
-def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> Incident:
-    incident_id = incident_id_for(event)
-    event.incident_id = incident_id
+_MAX_TIMELINE_EVENTS = 100
 
+
+def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> Incident:
     if incident is None:
+        incident_id = incident_id_for(event)
+        event.incident_id = incident_id
         return Incident(
             incident_id=incident_id,
             camera_id=event.camera_id,
@@ -44,10 +46,13 @@ def merge_event_into_incident(incident: Incident | None, event: SafetyEvent) -> 
             timeline=[event],
         )
 
+    event.incident_id = incident.incident_id
     incident.updated_at = max(incident.updated_at, event.timestamp)
     if SEVERITY_RANK[event.severity] > SEVERITY_RANK[incident.highest_severity]:
         incident.highest_severity = event.severity
     incident.event_ids.append(event.event_id)
     incident.timeline.append(event)
     incident.timeline.sort(key=lambda item: item.timestamp)
+    if len(incident.timeline) > _MAX_TIMELINE_EVENTS:
+        incident.timeline = incident.timeline[-_MAX_TIMELINE_EVENTS:]
     return incident
