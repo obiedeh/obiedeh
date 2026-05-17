@@ -1,0 +1,49 @@
+name: jetson-edge-ai-security
+
+on:
+  push:
+    paths:
+      - "projects/jetson-edge-ai-security/**"
+      - ".github/workflows/jetson-edge-ai-security.yml"
+  pull_request:
+    paths:
+      - "projects/jetson-edge-ai-security/**"
+      - ".github/workflows/jetson-edge-ai-security.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    env:
+      PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+    defaults:
+      run:
+        working-directory: projects/jetson-edge-ai-security
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('projects/jetson-edge-ai-security/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,ml]"
+
+      - name: Lint (ruff)
+        run: ruff check .
+
+      - name: Run tests
+        run: python -m pytest -q
