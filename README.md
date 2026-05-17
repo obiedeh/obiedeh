@@ -50,15 +50,15 @@ This is the center of gravity for the portfolio.
 
 ## Core Engineering Tracks
 
-| Track | Repository | System Focus |
-|---|---|---|
-| **Physical AI / Robotics** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real, robot telemetry |
-| **Edge AI Runtime Benchmarking** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | ONNX, TensorRT, Jetson benchmarking, latency, memory, sustained inference |
-| **AI-RAN KPI Forecasting** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN-style telemetry forecasting, congestion evidence, operational reports |
-| **Private 5G Telemetry Pipeline** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, feature generation, Parquet/report artifacts |
-| **Telecom Customer Experience Intelligence** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | risk trajectories, intervention recommendations, network-to-customer correlation |
-| **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations |
-| **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting |
+| Priority | Track | Repository | System Focus |
+|---|---|---|---|
+| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real validation, robot telemetry |
+| 2 | **Edge AI Runtime Benchmarking** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | ONNX, TensorRT, Jetson benchmarking, latency, memory pressure, sustained inference |
+| 3 | **Edge and Telecom Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, feature generation, telemetry observability, Parquet/report artifacts |
+| 4 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN-style telemetry forecasting, congestion evidence, operational reporting |
+| 5 | **Telecom Customer Experience Intelligence** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | customer-risk trajectories, intervention recommendations, network-to-customer correlation |
+| 6 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations |
+| 7 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting |
 
 ---
 
@@ -67,10 +67,10 @@ This is the center of gravity for the portfolio.
 ```text
 Wireless systems
   -> telemetry pipelines
-  -> forecasting and operational intelligence
+  -> operational intelligence
   -> customer / infrastructure risk detection
   -> operator-assist recommendations
-  -> edge and robotics deployment environments
+  -> edge inference and robotics deployment
 ```
 
 The portfolio is intentionally systems-oriented. Each repository supports part of the same larger thesis: AI value moves from isolated prediction to operational decision support when models are connected to telemetry, runtime constraints, evidence, and human review.
@@ -81,10 +81,11 @@ The portfolio is intentionally systems-oriented. Each repository supports part o
 
 | Priority | Repository | Upgrade Focus |
 |---|---|---|
-| 1 | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | add stronger runtime evidence, screenshots, validation reports, and sim-to-real artifacts |
-| 2 | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | convert from CNN coursework framing into an Edge AI Runtime Benchmarking Lab |
-| 3 | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | convert from churn prediction into telecom customer-experience intelligence and intervention workflows |
-| 4 | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | add stronger visual evidence, forecast examples, and operational scenario reports |
+| 1 | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | strengthen runtime evidence, screenshots, validation reports, telemetry artifacts, and sim-to-real workflows |
+| 2 | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | convert from coursework framing into a serious Edge AI Runtime Benchmarking Lab |
+| 3 | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | expand telemetry evidence, reporting artifacts, and operational observability workflows |
+| 4 | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | convert from churn prediction into telecom customer-experience intelligence and intervention operations |
+| 5 | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | add stronger visual evidence, forecast artifacts, and operational scenario reports |
 
 ---
 
