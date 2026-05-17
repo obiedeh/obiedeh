@@ -5,7 +5,7 @@ from threading import Lock
 
 from api.models.camera import Camera, CameraRegistration
 from api.services.migrations import run_migrations
-from events.lifecycle import can_group_event, incident_id_for, merge_event_into_incident
+from events.lifecycle import can_group_event, merge_event_into_incident
 from events.schemas import Incident, SafetyEvent
 from runtime_settings import load_settings
 from telemetry.metrics import metrics
@@ -186,7 +186,6 @@ class SQLiteStore:
             incident = Incident.model_validate(json.loads(row["payload"]))
             if can_group_event(incident, event, self.incident_window_seconds):
                 return incident
-        event.incident_id = incident_id_for(event)
         return None
 
 

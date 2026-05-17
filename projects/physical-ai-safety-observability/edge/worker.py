@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+import time
 from typing import Any
 
 import httpx
@@ -29,6 +30,7 @@ def build_adapter(settings: RuntimeSettings) -> VLMAdapter:
             endpoint=worker.adapter_endpoint,
             model=worker.model,
             api_key=api_key,
+            timeout=worker.inference_timeout_seconds,
         )
     if worker.adapter == "cosmos-reason2":
         api_key = os.getenv(worker.api_key_env) if worker.api_key_env else None
@@ -36,13 +38,25 @@ def build_adapter(settings: RuntimeSettings) -> VLMAdapter:
             endpoint=worker.adapter_endpoint,
             model=worker.model,
             api_key=api_key,
+            timeout=worker.inference_timeout_seconds,
         )
     raise ValueError(f"unsupported adapter: {worker.adapter}")
 
 
-def post_event(backend: str, event_payload: dict[str, Any]) -> None:
-    response = httpx.post(f"{backend.rstrip('/')}/events", json=event_payload, timeout=10)
-    response.raise_for_status()
+def post_event(backend: str, event_payload: dict[str, Any], *, retries: int = 3) -> None:
+    url = f"{backend.rstrip('/')}/events"
+    for attempt in range(retries):
+        try:
+            response = httpx.post(url, json=event_payload, timeout=10)
+            response.raise_for_status()
+            return
+        except httpx.HTTPStatusError as exc:
+            if exc.response.status_code < 500 or attempt == retries - 1:
+                raise
+        except (httpx.NetworkError, httpx.TimeoutException):
+            if attempt == retries - 1:
+                raise
+        time.sleep(0.5 * (2 ** attempt))
 
 
 def run_worker(

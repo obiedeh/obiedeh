@@ -36,6 +36,8 @@ class MetricsRegistry:
         self.set_gauge("memory_pressure", event.runtime_context.memory_pressure)
         self.set_gauge("gpu_memory_pressure", event.runtime_context.gpu_memory_pressure)
 
+    _COUNTER_NAMES = frozenset({"events_total", "critical_events_total"})
+
     def render_prometheus(self) -> str:
         required = {
             "events_total": self.counters.get("events_total", 0.0),
@@ -51,7 +53,11 @@ class MetricsRegistry:
             "rule_eval_latency_ms": self.gauges.get("rule_eval_latency_ms", 0.0),
             "backend_post_latency_ms": self.gauges.get("backend_post_latency_ms", 0.0),
         }
-        lines = [f"{name} {value}" for name, value in sorted(required.items())]
+        lines: list[str] = []
+        for name, value in sorted(required.items()):
+            metric_type = "counter" if name in self._COUNTER_NAMES else "gauge"
+            lines.append(f"# TYPE {name} {metric_type}")
+            lines.append(f"{name} {value}")
         return "\n".join(lines) + "\n"
 
 
