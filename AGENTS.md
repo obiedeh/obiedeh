@@ -35,30 +35,6 @@ Every task ends with this exact structure:
 
 No marketing language. No "production-ready" claims unless the checks in section 3 prove it.
 
-### Example
-
-```text
-Files changed:
-- src/telemetry/exporter.py
-- tests/telemetry/test_exporter.py
-
-Why:
-- exporter.py: added retry on transient HTTP 5xx
-- test_exporter.py: covered the retry path
-
-Tests / checks run:
-- pytest tests/telemetry — 14 passed
-- ruff check src/telemetry — clean
-
-Tests / checks not run:
-- end-to-end against staging exporter — no staging access from this session
-
-Risks / follow-up:
-- retry budget is fixed at 3 attempts; consider making it configurable
-
-Review needed? Yes — verify retry budget and retryable exception filter.
-```
-
 ---
 
 ## Agent scope
@@ -132,6 +108,24 @@ These are limits, not suggestions. Exceeding them requires explicit user approva
 - **New top-level modules/packages:** 0 without approval
 
 If the task needs more, split it and ask which slice to do first.
+
+### Scaffolding exemption
+
+Large initial repository scaffolding may exceed standard patch budgets ONLY when:
+
+- establishing first-pass repository structure
+- creating initial architecture foundations
+- generating initial implementation scaffolds
+- importing baseline assets required to make the repository operational
+
+Requirements:
+
+- must be explicitly labeled as scaffolding work
+- must be followed by repo-hardener review
+- must include a follow-up hardening/refinement phase
+- must not be presented as production-ready solely because scaffolding exists
+
+Scaffolding exemptions are temporary bootstrap exceptions, not normal operating mode.
 
 ---
 
