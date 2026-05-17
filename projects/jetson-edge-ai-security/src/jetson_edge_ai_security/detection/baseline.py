@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 from jetson_edge_ai_security.schemas import DetectionResult, FeatureWindow
+
+LOGGER = logging.getLogger(__name__)
 
 
 class BaselineThresholds(BaseModel):
@@ -79,6 +82,10 @@ class BaselineDetector:
         try:
             from sklearn.ensemble import IsolationForest
         except ImportError:
+            LOGGER.warning(
+                "use_isolation_forest=True requested but scikit-learn is not installed. "
+                "Falling back to rule-only detection. Install with: pip install scikit-learn"
+            )
             self.isolation_forest_available = False
             return
         self._model = IsolationForest(**self._isolation_forest_kwargs)

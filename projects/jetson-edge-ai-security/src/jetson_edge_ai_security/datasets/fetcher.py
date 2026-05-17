@@ -90,14 +90,14 @@ def _extract_archive(archive_path: Path, extract_dir: Path, archive_type: str | 
         with zipfile.ZipFile(archive_path) as archive:
             for member in archive.infolist():
                 _safe_extract_path(extract_dir, member.filename)
-            archive.extractall(extract_dir)
+                archive.extract(member, extract_dir)
         return
 
     if archive_type in {"tar", "tgz", "tar.gz"} or archive_path.suffix.lower() in {".tar", ".gz", ".tgz"}:
         with tarfile.open(archive_path) as archive:
             for member in archive.getmembers():
                 _safe_extract_path(extract_dir, member.name)
-            archive.extractall(extract_dir)
+                archive.extract(member, extract_dir, set_attrs=False)
         return
 
     if archive_path.suffix.lower() == ".csv":

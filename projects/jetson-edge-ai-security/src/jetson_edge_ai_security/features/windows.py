@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from collections import Counter, deque
 from collections.abc import Iterable, Iterator
-from datetime import datetime
 
 from jetson_edge_ai_security.schemas import FeatureWindow, TelemetryEvent
 

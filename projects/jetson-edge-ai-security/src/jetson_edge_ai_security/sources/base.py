@@ -14,7 +14,7 @@ class TrafficSource(ABC):
 
     name: str
 
-    def __enter__(self) -> "TrafficSource":
+    def __enter__(self) -> TrafficSource:
         self.open()
         return self
 
