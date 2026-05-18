@@ -10,21 +10,21 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 
 - **Best-fit role families:** Physical AI systems, Jetson edge AI, robotics simulation, AI infrastructure, developer tooling.
 - **Strongest matching projects:** `physical-ai-jetson-robotics`, `physical-ai-safety-observability`, `jetson-edge-ai-security`.
-- **Hiring signal:** Connects ROS 2, Isaac/OpenUSD, Jetson-oriented runtime evidence, telemetry, and safety-aware review patterns.
-- **Current evidence gap:** Hardware run logs, Jetson benchmark artifacts, and completed sim-to-real validation are still pending.
+- **Hiring signal:** Connects Jetson-oriented runtime systems, ROS 2 / Isaac / OpenUSD direction, telemetry-driven validation, safety-aware observability, and edge inference constraints.
+- **Current evidence gap:** Hardware run logs, Jetson benchmark artifacts, sustained-runtime evidence, and completed sim-to-real validation are still pending.
 
 ### Qualcomm
 
 - **Best-fit role families:** Edge AI runtime, on-device inference, wireless/AI infrastructure, telemetry analytics.
 - **Strongest matching projects:** `jetson-edge-ai-security`, `mnist-deep-cnn-improved-image-classification`, `qpsk-wireless-link-simulator`, `ai-ran-kpi-forecasting`.
-- **Hiring signal:** Shows edge-aware model evaluation, constrained-runtime thinking, wireless foundations, and telemetry-driven validation.
+- **Hiring signal:** Shows on-device AI thinking, model-to-runtime deployment discipline, quantization/inference validation direction, wireless foundations, and telemetry-driven validation.
 - **Current evidence gap:** Device-specific latency, memory, and sustained-run artifacts are still pending.
 
 ### Tesla
 
 - **Best-fit role families:** Robotics systems, perception infrastructure, operational observability, safety review tooling.
 - **Strongest matching projects:** `physical-ai-jetson-robotics`, `physical-ai-safety-observability`, `urban-edge-vision-analytics`.
-- **Hiring signal:** Emphasizes robot workflows, edge perception, safety observability, and human-reviewed operational evidence.
+- **Hiring signal:** Emphasizes Physical AI observability, perception-to-event workflows, operator review, robotics safety telemetry, and edge runtime constraints.
 - **Current evidence gap:** Real robot execution artifacts, real camera runs, and field-style safety validation are still pending.
 
 ### Google
@@ -38,7 +38,7 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 
 - **Best-fit role families:** AI systems, edge inference, multimodal workflows, infrastructure observability, applied research engineering.
 - **Strongest matching projects:** `urban-edge-vision-analytics`, `physical-ai-safety-observability`, `agentic-medical-ai-explainability`, `jetson-edge-ai-security`.
-- **Hiring signal:** Shows multimodal and agentic workflow design with emphasis on evidence, limitations, and human review.
+- **Hiring signal:** Shows AI infrastructure, inference systems, multimodal workflows, observability, and runtime measurement discipline.
 - **Current evidence gap:** Real model adapter evidence, non-mock VLM outputs, and sustained runtime measurements are still pending.
 
 ## Flagship Proof Stack
@@ -49,12 +49,12 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
    - **Next best artifact:** One reproducible end-to-end robot or Jetson demo with metrics, screenshots, limitations, and next validation step.
 
 2. `physical-ai-safety-observability`
-   - **What it proves:** Safety-aware observability can be framed as a reviewable edge AI workflow rather than an unbounded automation claim.
+   - **What it proves:** A safety-aware observability workflow can be structured as an edge runtime with API ingestion, policy evaluation, telemetry, persistence, and human-review boundaries.
    - **Evidence still needed:** Real model outputs, camera samples, runtime metrics, and operator review artifacts.
    - **Next best artifact:** Deterministic demo evidence plus one real-image adapter run with explicit limitations.
 
 3. `jetson-edge-ai-security`
-   - **What it proves:** Defensive telemetry replay can produce normalized events, feature windows, baseline detections, alerts, and evidence reports.
+   - **What it proves:** Defensive telemetry replay can be normalized into events, feature windows, baseline detections, alerts, and evidence reports.
    - **Evidence still needed:** Public dataset replay artifacts, Jetson runtime metrics, and sustained-run notes.
    - **Next best artifact:** A committed replay report from a documented defensive dataset with metrics and alert JSONL.
 
@@ -64,4 +64,3 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 - Not claiming real-world robotics safety certification.
 - Not claiming Jetson benchmark numbers until artifacts are committed.
 - Not claiming real VLM accuracy from mock adapters.
-

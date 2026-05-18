@@ -36,20 +36,32 @@ The focus is building AI systems that can be:
 
 ---
 
+## Hiring-Manager Signal
+
+This portfolio is built to prove:
+- edge inference under real runtime constraints
+- telemetry-driven validation and observability
+- safety-aware Physical AI workflows
+- reproducible engineering artifacts
+- human-in-the-loop operational review
+- infrastructure-aware AI deployment
+
+---
+
 # Core Engineering Tracks
 
-| Priority | Track | Repository | System Focus |
-|---|---|---|---|
-| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real validation, robot telemetry |
-| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | safety telemetry, human/robot interaction monitoring, edge observability, operational AI safety workflows |
-| 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Jetson runtime monitoring, edge workload observability, anomaly detection, deployment integrity |
-| 4 | **Edge AI Runtime Benchmarking** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | ONNX, TensorRT, Jetson benchmarking, latency, memory pressure, sustained inference |
-| 5 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | edge-deployed operational event intelligence, traffic analytics, infrastructure event summarization |
-| 6 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, telemetry observability, feature generation, report artifacts |
-| 7 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN telemetry forecasting, congestion evidence, operational reporting |
-| 8 | **Telecom Customer Experience Intelligence** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | customer-risk trajectories, intervention recommendations, network-to-customer correlation |
-| 9 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations |
-| 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting |
+| Priority | Track | Repository | System Focus | Evidence Status |
+|---|---|---|---|---|
+| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real validation, robot telemetry | Active flagship |
+| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | safety telemetry, human/robot interaction monitoring, edge observability, operational AI safety workflows | Runnable scaffold |
+| 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Jetson runtime monitoring, edge workload observability, anomaly detection, deployment integrity | MVP runtime |
+| 4 | **Edge AI Runtime Benchmarking** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | ONNX, TensorRT, Jetson benchmarking, latency, memory pressure, sustained inference | Benchmark pending |
+| 5 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | edge-oriented operational event intelligence, traffic analytics, infrastructure event summarization | Mock path validated |
+| 6 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, telemetry observability, feature generation, report artifacts | Fresh run pending |
+| 7 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN telemetry forecasting, congestion evidence, operational reporting | Fresh run pending |
+| 8 | **Telecom Customer Experience Intelligence** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | customer-risk trajectories, intervention recommendations, network-to-customer correlation | Evaluation pending |
+| 9 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations | Sweep report pending |
+| 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting | Safety caveats pending |
 
 Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
 
@@ -113,6 +125,32 @@ The broader thesis is that AI systems become operationally valuable only when co
 Evidence maturity is tracked in [`PORTFOLIO_EVIDENCE.md`](PORTFOLIO_EVIDENCE.md).
 
 Hiring-manager mapping: [`HIRING_MANAGER_BRIEF.md`](HIRING_MANAGER_BRIEF.md).
+
+---
+
+# Evidence Standard
+
+Each flagship project should include:
+- reproducible run command
+- tests / CI validation
+- runtime metrics artifact
+- architecture diagram
+- sample input/output
+- limitations
+- next validation step
+
+---
+
+# Credibility Boundary
+
+This portfolio separates:
+- implemented workflows
+- runnable scaffolds
+- mock validation paths
+- planned hardware benchmarks
+- future deployment targets
+
+Project READMEs should state limitations clearly. Mock adapters, synthetic inputs, and planned Jetson paths are useful engineering scaffolds, but they are not claimed as real-world deployment proof until committed evidence artifacts exist.
 
 ---
 
