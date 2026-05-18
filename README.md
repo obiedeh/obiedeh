@@ -1,6 +1,6 @@
 # Obinna Edeh
 
-**AI Systems Engineer for Physical AI, Edge Inference, and Operational AI Systems.**
+**AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observability, and AI Infrastructure.**
 
 I build AI systems where models meet physical infrastructure: robots, Jetson-class edge devices, runtime telemetry, safety-aware observability, and operator-assist intelligence workflows.
 
@@ -51,6 +51,8 @@ The focus is building AI systems that can be:
 | 9 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations |
 | 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting |
 
+Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
+
 ---
 
 # Flagship Direction
@@ -98,7 +100,7 @@ The broader thesis is that AI systems become operationally valuable only when co
 
 ---
 
-# Current Build Priorities
+# Evidence Build Priorities
 
 | Priority | Repository | Upgrade Focus |
 |---|---|---|
@@ -107,6 +109,10 @@ The broader thesis is that AI systems become operationally valuable only when co
 | 3 | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | edge runtime anomaly detection, deployment integrity, telemetry observability |
 | 4 | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | convert into a serious Edge AI Runtime Benchmarking Lab |
 | 5 | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | telecom operational intelligence and intervention workflows |
+
+Evidence maturity is tracked in [`PORTFOLIO_EVIDENCE.md`](PORTFOLIO_EVIDENCE.md).
+
+Hiring-manager mapping: [`HIRING_MANAGER_BRIEF.md`](HIRING_MANAGER_BRIEF.md).
 
 ---
 
