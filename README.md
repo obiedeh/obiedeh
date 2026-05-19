@@ -124,19 +124,15 @@ The broader thesis is that AI systems become operationally valuable only when co
 
 ---
 
-# Evidence Build Priorities
+# Current Evidence Focus
 
-| Priority | Repository | Upgrade Focus |
-|---|---|---|
-| 1 | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | runtime evidence, telemetry artifacts, screenshots, validation reports, sim-to-real workflows |
-| 2 | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | operational safety telemetry, evidence chains, runtime observability, human-review workflows |
-| 3 | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | edge runtime anomaly detection, deployment integrity, telemetry observability |
-| 4 | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | real adapter planning, sample video evidence, operator event review workflow |
-| 5 | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | telemetry validation, data quality evidence, downstream AI handoff |
+The current portfolio focus is strengthening the flagship proof stack:
 
-Foundational projects remain useful as learning and baseline evidence, but they do not define the flagship portfolio direction.
+1. [`physical-ai-jetson-robotics`](https://github.com/obiedeh/physical-ai-jetson-robotics) — Jetson/runtime evidence, telemetry artifacts, sim-to-real validation
+2. [`physical-ai-safety-observability`](https://github.com/obiedeh/physical-ai-safety-observability) — safety event evidence, operator review flow, runtime metrics
+3. [`jetson-edge-ai-security`](https://github.com/obiedeh/jetson-edge-ai-security) — defensive telemetry replay, alert artifacts, runtime reporting
 
-Evidence maturity is tracked in [`PORTFOLIO_EVIDENCE.md`](PORTFOLIO_EVIDENCE.md).
+Detailed maturity tracking is maintained in [`PORTFOLIO_EVIDENCE.md`](PORTFOLIO_EVIDENCE.md).
 
 Hiring-manager mapping: [`HIRING_MANAGER_BRIEF.md`](HIRING_MANAGER_BRIEF.md).
 
