@@ -1,6 +1,6 @@
 # Obinna Edeh
 
-**AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observability, and AI Infrastructure.**
+**AI Architect and Systems Engineer focused on Physical AI, Edge Inference, Runtime Observability, and AI Infrastructure.**
 
 I build AI systems where models meet physical infrastructure: robots, Jetson-class edge devices, runtime telemetry, safety-aware observability, and operator-assist intelligence workflows.
 
