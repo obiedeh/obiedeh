@@ -54,26 +54,26 @@ This portfolio is built to prove:
 
 | Priority | Track | Repository | System Focus | Evidence Status |
 |---|---|---|---|---|
-| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real validation, robot telemetry | Active flagship |
-| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | safety telemetry, edge observability, human/robot interaction monitoring, human review | Runnable scaffold |
-| 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Jetson runtime monitoring, edge workload observability, anomaly detection, deployment integrity | MVP runtime |
+| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson-class robotics platform for ROS 2 workflows, robot telemetry, edge inference, and sim-to-real evidence | Active flagship |
+| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | Safety-observability runtime for telemetry ingestion, threshold monitoring, incident review, and evidence chains | Runnable scaffold |
+| 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Defensive edge runtime for telemetry parsing, anomaly detection, alerting, and deployment reports | MVP runtime |
 
 ## Applied Systems Tracks
 
 | Priority | Track | Repository | System Focus | Evidence Status |
 |---|---|---|---|---|
-| 4 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | edge-oriented operational event intelligence, traffic analytics, infrastructure event summarization | Mock path validated |
-| 5 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, telemetry observability, feature generation, report artifacts | Fresh run pending |
-| 6 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN telemetry forecasting, congestion evidence, operational reporting | Operational report pending |
-| 7 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations | Sweep report pending |
+| 4 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | Edge vision workflow for frame analysis, infrastructure events, operator summaries, and deployment planning | Mock path validated |
+| 5 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Supporting telemetry pipeline for KPI ingestion, validation, feature generation, and infrastructure reporting | Fresh run pending |
+| 6 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | AI infrastructure bridge for KPI forecasting, congestion signals, and operational network intelligence | Operational report pending |
+| 7 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | Foundational wireless simulator for QPSK behavior, BER/SNR sweeps, and link-estimation experiments | Sweep report pending |
 
 ## Foundations and Learning Systems
 
 | Priority | Track | Repository | System Focus | Evidence Status |
 |---|---|---|---|---|
-| 8 | **Foundational CNN Optimization** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | CNN training, evaluation, optimization baseline, future ONNX/TensorRT export path | Foundation project |
-| 9 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | churn modeling, customer-risk trajectories, human-reviewed recommendations | Evaluation pending |
-| 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting | Safety caveats pending |
+| 8 | **Foundational CNN Optimization** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Foundational CNN optimization for training, evaluation, and future ONNX/TensorRT edge deployment practice | Foundation project |
+| 9 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Foundational agentic workflow for churn risk, explainability, and human-reviewed customer intelligence | Evaluation pending |
+| 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Foundational explainability workflow with SHAP, safety boundaries, and reproducible human-review reports | Safety caveats pending |
 
 Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
 
