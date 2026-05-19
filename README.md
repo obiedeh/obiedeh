@@ -48,19 +48,31 @@ This portfolio is built to prove:
 
 ---
 
-# Core Engineering Tracks
+# Portfolio Architecture
+
+## Flagship Systems
 
 | Priority | Track | Repository | System Focus | Evidence Status |
 |---|---|---|---|---|
 | 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | ROS 2, Jetson, Isaac, OpenUSD, sim-to-real validation, robot telemetry | Active flagship |
-| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | safety telemetry, human/robot interaction monitoring, edge observability, operational AI safety workflows | Runnable scaffold |
+| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | safety telemetry, edge observability, human/robot interaction monitoring, human review | Runnable scaffold |
 | 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Jetson runtime monitoring, edge workload observability, anomaly detection, deployment integrity | MVP runtime |
-| 4 | **Edge AI Runtime Benchmarking** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | ONNX, TensorRT, Jetson benchmarking, latency, memory pressure, sustained inference | Benchmark pending |
-| 5 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | edge-oriented operational event intelligence, traffic analytics, infrastructure event summarization | Mock path validated |
-| 6 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, telemetry observability, feature generation, report artifacts | Fresh run pending |
-| 7 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN telemetry forecasting, congestion evidence, operational reporting | Fresh run pending |
-| 8 | **Telecom Customer Experience Intelligence** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | customer-risk trajectories, intervention recommendations, network-to-customer correlation | Evaluation pending |
-| 9 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations | Sweep report pending |
+
+## Applied Systems Tracks
+
+| Priority | Track | Repository | System Focus | Evidence Status |
+|---|---|---|---|---|
+| 4 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | edge-oriented operational event intelligence, traffic analytics, infrastructure event summarization | Mock path validated |
+| 5 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | KPI ingestion, validation, telemetry observability, feature generation, report artifacts | Fresh run pending |
+| 6 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN telemetry forecasting, congestion evidence, operational reporting | Operational report pending |
+| 7 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | QPSK simulation, BER/SNR analysis, AI-assisted link estimation foundations | Sweep report pending |
+
+## Foundations and Learning Systems
+
+| Priority | Track | Repository | System Focus | Evidence Status |
+|---|---|---|---|---|
+| 8 | **Foundational CNN Optimization** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | CNN training, evaluation, optimization baseline, future ONNX/TensorRT export path | Foundation project |
+| 9 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | churn modeling, customer-risk trajectories, human-reviewed recommendations | Evaluation pending |
 | 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | reproducible ML, explainability, safety boundaries, human-in-the-loop reporting | Safety caveats pending |
 
 Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
@@ -119,8 +131,10 @@ The broader thesis is that AI systems become operationally valuable only when co
 | 1 | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | runtime evidence, telemetry artifacts, screenshots, validation reports, sim-to-real workflows |
 | 2 | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | operational safety telemetry, evidence chains, runtime observability, human-review workflows |
 | 3 | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | edge runtime anomaly detection, deployment integrity, telemetry observability |
-| 4 | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | convert into a serious Edge AI Runtime Benchmarking Lab |
-| 5 | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | telecom operational intelligence and intervention workflows |
+| 4 | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | real adapter planning, sample video evidence, operator event review workflow |
+| 5 | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | telemetry validation, data quality evidence, downstream AI handoff |
+
+Foundational projects remain useful as learning and baseline evidence, but they do not define the flagship portfolio direction.
 
 Evidence maturity is tracked in [`PORTFOLIO_EVIDENCE.md`](PORTFOLIO_EVIDENCE.md).
 

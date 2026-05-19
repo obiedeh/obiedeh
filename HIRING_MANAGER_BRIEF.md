@@ -16,7 +16,7 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 ### Qualcomm
 
 - **Best-fit role families:** Edge AI runtime, on-device inference, wireless/AI infrastructure, telemetry analytics.
-- **Strongest matching projects:** `jetson-edge-ai-security`, `mnist-deep-cnn-improved-image-classification`, `qpsk-wireless-link-simulator`, `ai-ran-kpi-forecasting`.
+- **Strongest matching projects:** `jetson-edge-ai-security`, `qpsk-wireless-link-simulator`, `ai-ran-kpi-forecasting`; supporting foundation: `mnist-deep-cnn-improved-image-classification`.
 - **Hiring signal:** Shows on-device AI thinking, model-to-runtime deployment discipline, quantization/inference validation direction, wireless foundations, and telemetry-driven validation.
 - **Current evidence gap:** Device-specific latency, memory, and sustained-run artifacts are still pending.
 
