@@ -71,9 +71,7 @@ This portfolio is built to prove:
 
 | Priority | Track | Repository | System Focus | Evidence Status |
 |---|---|---|---|---|
-| 8 | **Foundational CNN Optimization** | [mnist-deep-cnn-improved-image-classification](https://github.com/obiedeh/mnist-deep-cnn-improved-image-classification) | Foundational CNN optimization for training, evaluation, and future ONNX/TensorRT edge deployment practice | Foundation project |
-| 9 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Foundational agentic workflow for churn risk, explainability, and human-reviewed customer intelligence | Evaluation pending |
-| 10 | **Explainable Human-Reviewed AI** | [agentic-medical-ai-explainability](https://github.com/obiedeh/agentic-medical-ai-explainability) | Foundational explainability workflow with SHAP, safety boundaries, and reproducible human-review reports | Safety caveats pending |
+| 8 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Foundational agentic workflow for churn risk, explainability, and human-reviewed customer intelligence | Evaluation pending |
 
 Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
 
