@@ -16,7 +16,7 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 ### Qualcomm
 
 - **Best-fit role families:** Edge AI runtime, on-device inference, wireless/AI infrastructure, telemetry analytics.
-- **Strongest matching projects:** `jetson-edge-ai-security`, `qpsk-wireless-link-simulator`, `ai-ran-kpi-forecasting`; supporting foundation: `mnist-deep-cnn-improved-image-classification`.
+- **Strongest matching projects:** `jetson-edge-ai-security`, `qpsk-wireless-link-simulator`, `ai-ran-kpi-forecasting`.
 - **Hiring signal:** Shows on-device AI thinking, model-to-runtime deployment discipline, quantization/inference validation direction, wireless foundations, and telemetry-driven validation.
 - **Current evidence gap:** Device-specific latency, memory, and sustained-run artifacts are still pending.
 
@@ -30,14 +30,14 @@ AI Systems Engineer focused on Physical AI, Edge Inference, Runtime Observabilit
 ### Google
 
 - **Best-fit role families:** AI infrastructure, MLOps, observability, data pipelines, applied ML systems.
-- **Strongest matching projects:** `private-5g-data-pipeline`, `agentic-medical-ai-explainability`, `telecom-churn-ml-with-agents`, `ai-ran-kpi-forecasting`.
+- **Strongest matching projects:** `private-5g-data-pipeline`, `telecom-churn-ml-with-agents`, `ai-ran-kpi-forecasting`.
 - **Hiring signal:** Maps AI workflows to reproducible pipelines, explainability, telemetry, and reviewable operational outputs.
 - **Current evidence gap:** Fresh CI-backed runs, evaluation artifacts, and clearer service/runtime boundaries are still pending.
 
 ### Meta
 
 - **Best-fit role families:** AI systems, edge inference, multimodal workflows, infrastructure observability, applied research engineering.
-- **Strongest matching projects:** `urban-edge-vision-analytics`, `physical-ai-safety-observability`, `agentic-medical-ai-explainability`, `jetson-edge-ai-security`.
+- **Strongest matching projects:** `urban-edge-vision-analytics`, `physical-ai-safety-observability`, `jetson-edge-ai-security`.
 - **Hiring signal:** Shows AI infrastructure, inference systems, multimodal workflows, observability, and runtime measurement discipline.
 - **Current evidence gap:** Real model adapter evidence, non-mock VLM outputs, and sustained runtime measurements are still pending.
 
