@@ -48,8 +48,6 @@ Current portfolio work is focused on strengthening visible proof across the flag
 2. [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) — safety event evidence, operator review flow, runtime metrics, and observability reports
 3. [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) — defensive telemetry replay, anomaly alerts, edge security reporting, and Jetson-oriented constraints
 
-Detailed maturity tracking is maintained in [PORTFOLIO_EVIDENCE.md](PORTFOLIO_EVIDENCE.md).
-
 Hiring-manager mapping: [HIRING_MANAGER_BRIEF.md](HIRING_MANAGER_BRIEF.md).
 
 ## Credibility Boundary
