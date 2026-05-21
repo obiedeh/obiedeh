@@ -48,30 +48,46 @@ This portfolio is built to prove:
 
 ---
 
-# Portfolio Architecture
+## Portfolio Architecture
 
-## Flagship Systems
+These projects define the core architecture of my portfolio: Physical AI systems, edge inference, runtime telemetry, safety observability, and Jetson/ROS 2 deployment workflows.
 
-| Priority | Track | Repository | System Focus | Evidence Status |
-|---|---|---|---|---|
-| 1 | **Physical AI / Robotics Systems** | [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson-class robotics platform for ROS 2 workflows, robot telemetry, edge inference, and sim-to-real evidence | Active flagship |
-| 2 | **Physical AI Safety and Observability** | [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | Safety-observability runtime for telemetry ingestion, threshold monitoring, incident review, and evidence chains | Runnable scaffold |
-| 3 | **Edge AI Runtime Security** | [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Defensive edge runtime for telemetry parsing, anomaly detection, alerting, and deployment reports | MVP runtime |
+| Project | Focus | Signal |
+|---|---|---|
+| [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson, ROS 2, robotics, sim-to-real | Flagship Physical AI system |
+| [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | Safety events, runtime telemetry, observability | Operational AI and safety layer |
+| [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Edge telemetry, anomaly detection, Jetson constraints | Security and reliability at the edge |
 
-## Applied Systems Tracks
+## Applied Systems
 
-| Priority | Track | Repository | System Focus | Evidence Status |
-|---|---|---|---|---|
-| 4 | **Urban Edge Vision Intelligence** | [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | Edge vision workflow for frame analysis, infrastructure events, operator summaries, and deployment planning | Mock path validated |
-| 5 | **Private 5G Telemetry Infrastructure** | [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Supporting telemetry pipeline for KPI ingestion, validation, feature generation, and infrastructure reporting | Fresh run pending |
-| 6 | **AI-RAN Operational Intelligence** | [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | AI infrastructure bridge for KPI forecasting, congestion signals, and operational network intelligence | Operational report pending |
-| 7 | **Wireless Link Intelligence** | [qpsk-wireless-link-simulator](https://github.com/obiedeh/qpsk-wireless-link-simulator) | Foundational wireless simulator for QPSK behavior, BER/SNR sweeps, and link-estimation experiments | Sweep report pending |
+These projects translate edge AI, telemetry, and analytics into operator-facing systems with reports, dashboards, and decision support.
 
-## Foundations and Learning Systems
+| Project | Focus | Signal |
+|---|---|---|
+| [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | Edge vision, traffic events, incident reporting | Applied computer vision system |
+| [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Private 5G telemetry, data quality, reporting | Network operations data pipeline |
+| [wireless-link-intelligence-system](https://github.com/obiedeh/wireless-link-intelligence-system) | RF link metrics, SINR/RSSI interpretation, dashboarding | Wireless engineering decision support |
 
-| Priority | Track | Repository | System Focus | Evidence Status |
-|---|---|---|---|---|
-| 8 | **Telecom Agentic Analytics** | [telecom-churn-ml-with-agents](https://github.com/obiedeh/telecom-churn-ml-with-agents) | Foundational agentic workflow for churn risk, explainability, and human-reviewed customer intelligence | Evaluation pending |
+## AI-RAN
+
+These projects focus on AI-native wireless systems, 5G/6G link intelligence, neural receivers, and RAN operational analytics.
+
+| Project | Focus | Signal |
+|---|---|---|
+| [neural-receiver-5g-nr](https://github.com/obiedeh/neural-receiver-5g-nr) | ML-assisted 5G NR receiver concepts | AI for physical-layer wireless systems |
+| [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and operational intelligence | AI-RAN operations analytics |
+| [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Private 5G telemetry foundation | Data layer for AI-native network operations |
+
+## Pinned Repository Guidance
+
+Recommended pin order:
+
+1. [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics)
+2. [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability)
+3. [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security)
+4. [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics)
+5. [neural-receiver-5g-nr](https://github.com/obiedeh/neural-receiver-5g-nr)
+6. [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline)
 
 Some projects live as standalone repositories; the [`projects/`](projects/) folder contains selected profile-linked notes and mirrors.
 
