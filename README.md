@@ -2,6 +2,8 @@
 
 **Physical AI & Edge AI Systems Engineer focused on robotics, Jetson-class inference, runtime observability, and AI-native infrastructure.**
 
+🌐 **Personal portfolio:** [obinna-edeh-physical-ai.obiedeh.chatgpt.site](https://obinna-edeh-physical-ai.obiedeh.chatgpt.site/)
+
 I build AI systems where models meet physical infrastructure: robots, edge devices, telemetry streams, safety constraints, and operator workflows.
 
 My telecom background gives me depth in distributed systems, latency, wireless infrastructure, and operational reliability. I now apply that foundation to Physical AI, Robotics, Edge AI, and AI-RAN systems.
@@ -69,6 +71,7 @@ Mock adapters, synthetic inputs, and planned Jetson paths are useful engineering
 
 ## Contact
 
+- Personal site: [obinna-edeh-physical-ai.obiedeh.chatgpt.site](https://obinna-edeh-physical-ai.obiedeh.chatgpt.site/)
 - Email: [obiedeh@gmail.com](mailto:obiedeh@gmail.com)
 - LinkedIn: [linkedin.com/in/obinna-edeh-206306137](https://linkedin.com/in/obinna-edeh-206306137)
 - GitHub: [github.com/obiedeh](https://github.com/obiedeh)
