@@ -1,54 +1,29 @@
 # Obinna Edeh
 
-**Physical AI & Edge AI Systems Engineer focused on robotics, Jetson-class inference, runtime observability, and AI-native infrastructure.**
+**AI systems engineer for edge, robotics, and operational evidence.** I build systems that run on Jetson-class hardware and robots, then measure them and keep the measurement next to the claim.
 
-I build AI systems where models meet physical infrastructure: robots, edge devices, telemetry streams, safety constraints, and operator workflows.
+Open to leading AI systems work where teams need measurable edge, robotics, and operational evidence. Case studies and dashboards: [obiedeh.github.io](https://obiedeh.github.io/).
 
-My telecom background gives me depth in distributed systems, latency, wireless infrastructure, and operational reliability. I now apply that foundation to Physical AI, Robotics, Edge AI, and AI-RAN systems.
-
-Core focus: AI systems that can be benchmarked, observed, validated, deployed, audited, and operated safely under real runtime constraints.
+Every number below names its date, the hardware it was measured on, and the committed file it comes from. Anything without a measurement is labelled a scaffold.
 
 ---
 
-## Portfolio Architecture: Physical AI Systems
+## Flagship Systems
 
-These projects define the core architecture of my portfolio: robotics, Jetson-class edge inference, runtime telemetry, safety observability, and deployment-aware AI systems.
+| System | What it is | Measured evidence | Status |
+|---|---|---|---|
+| **Physical AI on Jetson** · [case study](https://obiedeh.github.io/physical-ai-jetson-robotics.html) | Robot manipulation program: Isaac Sim training and evaluation, GR00T inference on Jetson AGX Thor, Orin NX host for a ROS 2 arm, correction ledger | GR00T TensorRT **101.6 ms median, 9.8 Hz**, Jetson AGX Thor 128GB at 120 W, 2026-08-20 (`reports/thor_trt_benchmark/thor_trt_benchmark.json`). Ludo executor **35/36 turns**, Isaac Sim on RTX 5090, runs 2026-08-19, aggregate 2026-08-20 (`reports/ludo_stats_frozen/`). Orin NX fp16 matmul **9.72 TFLOPS p50**, 2026-08-20 (`reports/jetson/yahboom_day_one/day_one_smoke.json`). GR00T eval01 corrected from an apparent 1/20 to **0/20** (`reports/ludo_groot17_eval01/session_summary_corrected.json`). | Measured. Repository is private while vendor assets are removed from history; the case study is public. |
+| **Physical AI Safety Observability** | Runtime safety layer: structured safety events, policy engine for PPE, zones and proximity, operator review API, telemetry hooks | None yet. Mock VLM adapter, synthetic and file frame sources, artifact directories hold placeholders. | Scaffold. Repository is private. |
+| **Jetson Edge AI Security** · [repository](https://github.com/obiedeh/jetson-edge-ai-security) · [evidence pages](https://obiedeh.github.io/jetson-edge-ai-security/reports/index.html) | Defensive edge telemetry runtime: replayable events, anomaly alerts, operator review, ONNX detector and forecaster, Thor deployment package | Inference on Jetson AGX Thor, CPU provider, 2026-09-08: detector **p95 0.0237 ms at 1000 events/s**, **0.36 GB** peak RSS (`reports/thor_benchmark.json`). Default onnxruntime thread pool drew **54.1 W**; one thread with spinning disabled drew **24.3 W**, equal to idle, with zero pacing misses (`reports/thor_benchmark_threads.json`). | Measured for inference only. Detection quality is on a synthetic fixture; capture path unmeasured. |
 
-| Project | Focus | Signal |
-|---|---|---|
-| [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) | Jetson, ROS 2, robotics, sim-to-real | Flagship Physical AI system |
-| [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) | Safety events, runtime telemetry, observability | Operational AI and safety layer |
-| [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) | Edge telemetry, anomaly detection, Jetson constraints | Security and reliability at the edge |
+The combined edge-security and telemetry case study is at [obiedeh.github.io/jetson-edge-ai-security.html](https://obiedeh.github.io/jetson-edge-ai-security.html).
 
-## Applied Systems: Edge AI in Operator Workflows
+## How I Work
 
-These projects translate edge AI, telemetry, and analytics into operator-facing systems with reports, dashboards, and decision support.
-
-| Project | Focus | Signal |
-|---|---|---|
-| [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics) | Edge vision, traffic events, incident reporting | Applied computer vision system |
-| [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Private 5G telemetry, data quality, reporting | Network operations data pipeline |
-| [wireless-link-intelligence-system](https://github.com/obiedeh/wireless-link-intelligence-system) | RF link metrics, SINR/RSSI interpretation, dashboarding | Wireless engineering decision support |
-
-## AI-RAN: Wireless Intelligence as an Edge AI Bridge
-
-These projects connect my telecom background to AI-native infrastructure: neural receivers, 5G/6G link intelligence, RAN telemetry, and edge-aware wireless operations.
-
-| Project | Focus | Signal |
-|---|---|---|
-| [neural-receiver-5g-nr](https://github.com/obiedeh/neural-receiver-5g-nr) | ML-assisted 5G NR receiver concepts | AI for physical-layer wireless systems |
-| [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) | RAN KPI forecasting and operational intelligence | AI-RAN operations analytics |
-| [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline) | Private 5G telemetry foundation | Data layer for AI-native network operations |
-
-## Current Evidence Focus
-
-Current portfolio work is focused on strengthening visible proof across the flagship systems:
-
-1. [physical-ai-jetson-robotics](https://github.com/obiedeh/physical-ai-jetson-robotics) — Jetson/runtime evidence, ROS 2 workflows, telemetry artifacts, and sim-to-real validation
-2. [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability) — safety event evidence, operator review flow, runtime metrics, and observability reports
-3. [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security) — defensive telemetry replay, anomaly alerts, edge security reporting, and Jetson-oriented constraints
-
-Hiring-manager mapping: [HIRING_MANAGER_BRIEF.md](HIRING_MANAGER_BRIEF.md).
+- A run is not evidence until its artifact is committed with provenance: device, date, inputs, session options.
+- Corrections stay in the record. The GR00T retraction and the Thor template fix are documented, not overwritten.
+- Simulation, synthetic fixtures, and mock adapters are labelled as such everywhere they appear.
+- Humans stay in the loop: every alert, safety event, and policy output is advisory and operator-reviewed.
 
 ## Credibility Boundary
 
@@ -58,17 +33,30 @@ Mock adapters, synthetic inputs, and planned Jetson paths are useful engineering
 
 ## Technical Stack
 
-**Physical AI / Robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD  
-**Edge AI:** NVIDIA Jetson, TensorRT, ONNX, CUDA, vLLM, VLM/LLM deployment  
-**Runtime Observability:** telemetry pipelines, safety events, operational metrics, evidence artifacts  
-**AI / ML:** Python, PyTorch, scikit-learn, XGBoost, SHAP, MLflow  
-**Operational AI / RAG:** retrieval-grounded copilots, local inference workflows, guardrails, human review  
-**Data / Infrastructure:** SQL, Spark, Airflow, dbt, Docker, Kubernetes, CI/CD  
-**AI-RAN / Wireless:** RAN telemetry, KPI forecasting, neural receiver concepts, private 5G, wireless link analysis  
-**Cloud / Distributed Systems:** AWS, Azure, GCP, Terraform
+**Physical AI and robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD, GR00T
+**Edge inference:** NVIDIA Jetson AGX Thor and Orin NX, TensorRT, ONNX Runtime, CUDA
+**Runtime observability:** telemetry pipelines, safety events, tegrastats power and thermal capture, evidence artifacts with hashes
+**ML:** Python, PyTorch, scikit-learn, ONNX export with parity checks
+**Operational AI:** retrieval-grounded copilots, guardrails, human review
+**Data and infrastructure:** SQL, Spark, Airflow, dbt, Docker, Kubernetes, CI/CD, AWS, Azure, GCP, Terraform
+**Infrastructure and operational reliability:** network and radio telemetry, KPI forecasting, link-level signal analysis, capacity planning
+
+## Supporting Systems
+
+Smaller systems that prove one discipline each. One line, no further investment planned unless a measurement is added.
+
+| System | What it proves | Data source | Status |
+|---|---|---|---|
+| urban-edge-vision-analytics | Edge vision event pipeline with operator review | Synthetic frames and a mock detector | Scaffold. Repository private. |
+| [private-5g-edge-telemetry](https://github.com/obiedeh/private-5g-edge-telemetry) · [dashboard](https://obiedeh.github.io/private-5g-edge-telemetry/reports/dashboard.html) | Capacity planning under an edge-inference latency budget, with deterministic reports | Simulated factory telemetry | Simulation evidence, no hardware |
+| [wireless-link-intelligence-system](https://github.com/obiedeh/wireless-link-intelligence-system) · [dashboard](https://obiedeh.github.io/wireless-link-intelligence-system/reports/dashboard.html) | Signal-processing correctness and link estimation with a classical baseline first | Deterministic QPSK simulator and synthetic link conditions | Simulation evidence, no hardware |
+| [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) · [portal](https://obiedeh.github.io/ai-ran-kpi-forecasting/reports/index.html) | KPI forecasting pattern with no-leakage temporal splits and advisory policy output | 48-row synthetic sample; public benchmark loader coded, not yet run | Pattern, no measured result |
+| [ai-phy-neural-receiver-benchmark](https://github.com/obiedeh/ai-phy-neural-receiver-benchmark) · [dashboard](https://obiedeh.github.io/ai-phy-neural-receiver-benchmark/reports/dashboard.html) | Neural versus classical receiver comparison with the boundary of the advantage reported | Sionna-modelled link simulation | Simulation evidence, no hardware |
+
+Hiring-manager mapping: [HIRING_MANAGER_BRIEF.md](HIRING_MANAGER_BRIEF.md).
 
 ## Contact
 
 - Email: [obiedeh@gmail.com](mailto:obiedeh@gmail.com)
 - LinkedIn: [linkedin.com/in/obinna-edeh-206306137](https://linkedin.com/in/obinna-edeh-206306137)
-- GitHub: [github.com/obiedeh](https://github.com/obiedeh)
+- Site: [obiedeh.github.io](https://obiedeh.github.io/)
