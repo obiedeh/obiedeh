@@ -18,7 +18,7 @@ I build systems where models meet physical infrastructure: robots, edge devices,
 ### Qualcomm
 
 - **Best-fit role families:** Edge AI runtime, on-device inference, AI-RAN, wireless intelligence, telemetry analytics, infrastructure-aware AI.
-- **Strongest matching projects:** [neural-receiver-5g-nr](https://github.com/obiedeh/neural-receiver-5g-nr), [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security), [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline), [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting).
+- **Strongest matching projects:** [ai-phy-neural-receiver-benchmark](https://github.com/obiedeh/ai-phy-neural-receiver-benchmark), [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security), [private-5g-edge-telemetry](https://github.com/obiedeh/private-5g-edge-telemetry), [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting).
 - **Hiring signal:** Shows edge AI thinking, wireless/AI infrastructure awareness, telemetry-driven validation, neural receiver direction, and runtime constraints.
 - **Current evidence gap:** Device-specific latency, memory, sustained-run artifacts, and deeper 5G NR evaluation evidence are still pending.
 
@@ -39,7 +39,7 @@ I build systems where models meet physical infrastructure: robots, edge devices,
 ### Google
 
 - **Best-fit role families:** AI infrastructure, MLOps, observability, data pipelines, applied ML systems, edge AI infrastructure.
-- **Strongest matching projects:** [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability), [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline), [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security), [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics).
+- **Strongest matching projects:** [physical-ai-safety-observability](https://github.com/obiedeh/physical-ai-safety-observability), [private-5g-edge-telemetry](https://github.com/obiedeh/private-5g-edge-telemetry), [jetson-edge-ai-security](https://github.com/obiedeh/jetson-edge-ai-security), [urban-edge-vision-analytics](https://github.com/obiedeh/urban-edge-vision-analytics).
 - **Hiring signal:** Maps AI workflows to reproducible systems, telemetry, observability, data quality, reviewable operational outputs, and infrastructure-aware deployment.
 - **Current evidence gap:** More CI-backed artifact runs, evaluation reports, service/runtime separation evidence, and deployment-style documentation are still pending.
 
@@ -73,9 +73,9 @@ AI-RAN in this portfolio connects telecom infrastructure experience to edge AI s
 
 Projects:
 
-- [neural-receiver-5g-nr](https://github.com/obiedeh/neural-receiver-5g-nr)
+- [ai-phy-neural-receiver-benchmark](https://github.com/obiedeh/ai-phy-neural-receiver-benchmark)
 - [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting)
-- [private-5g-data-pipeline](https://github.com/obiedeh/private-5g-data-pipeline)
+- [private-5g-edge-telemetry](https://github.com/obiedeh/private-5g-edge-telemetry)
 - [wireless-link-intelligence-system](https://github.com/obiedeh/wireless-link-intelligence-system)
 
 ## What I Am Not Claiming
