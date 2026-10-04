@@ -35,12 +35,12 @@ Each project labels what is measured, implemented but unmeasured, scaffolded or 
 
 ## Technical Stack
 
-**Physical AI and robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD, GR00T, LeRobot, SLAM
-**Edge inference:** NVIDIA Jetson AGX Thor and Orin NX, TensorRT, ONNX Runtime, CUDA, vLLM, Nsight
-**Runtime observability:** telemetry pipelines, safety events, tegrastats power and thermal capture, evidence artifacts with hashes
-**ML:** Python, PyTorch, scikit-learn, ONNX export with parity checks, vision-language models (Cosmos-Reason2, Gemma)
-**Operational AI:** retrieval-grounded copilots, guardrails, evaluation harnesses, human review
-**Infrastructure:** Docker, Kubernetes, CI/CD, AWS (Bedrock, App Runner), Azure, GCP, Terraform, SQL, Spark, Airflow
+- **Physical AI and robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD, GR00T, LeRobot, SLAM
+- **Edge inference:** NVIDIA Jetson AGX Thor and Orin NX, TensorRT, ONNX Runtime, CUDA, vLLM, Nsight
+- **Runtime observability:** telemetry pipelines, safety events, tegrastats power and thermal capture, evidence artifacts with hashes
+- **ML:** Python, PyTorch, scikit-learn, ONNX export with parity checks, vision-language models (Cosmos-Reason2, Gemma)
+- **Operational AI:** retrieval-grounded copilots, guardrails, evaluation harnesses, human review
+- **Infrastructure:** Docker, Kubernetes, CI/CD, AWS (Bedrock, App Runner), Azure, GCP, Terraform, SQL, Spark, Airflow
 
 ## Supporting Systems
 
