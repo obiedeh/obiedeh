@@ -1,62 +1,56 @@
 # Obinna Edeh
 
-**AI systems engineer for edge, robotics, and operational evidence.** I build systems that run on Jetson-class hardware and robots, then measure them and keep the measurement next to the claim.
+**I take Physical AI and edge systems from the bench to the field, and I build them myself.**
 
-Open to leading AI systems work where teams need measurable edge, robotics, and operational evidence. Case studies and dashboards: [obiedeh.github.io](https://obiedeh.github.io/).
+My career has been getting new hardware to perform at scale: leading engineering teams, field crews and equipment vendors through deployments where the spec sheet promised one thing and the site delivered another. Closing that gap before the build is how I work, and it is the same gap Physical AI faces now. A model that passes a benchmark or a simulation still has to hold up on the robot, at the camera's real frame rate, inside real power and thermal limits.
 
-Every number below names its date, the hardware it was measured on, and the committed file it comes from. Anything without a measurement is labelled a scaffold.
+At [EmbodiedEdge Labs](https://embodiededge.ai), my Physical AI lab, I work that gap on my own hardware: a Jetson AGX Thor, a Jetson Orin NX on a ROS 2 rover, a 6-DoF arm and an RTX 5090 bench. Every result below names its date, the hardware it was measured on and the committed file it comes from.
+
+Open to senior engineering leadership roles in Physical AI, robotics and edge AI, where getting systems field-ready is the job.
 
 ---
 
 ## Flagship Systems
 
-| System | What it is | Measured evidence | Status |
+| System | The field question | What the evidence shows | Status |
 |---|---|---|---|
-| **Physical AI on Jetson** · [repository](https://github.com/obiedeh/physical-ai-jetson-robotics) · [case study](https://obiedeh.github.io/physical-ai-jetson-robotics.html) | Robot manipulation program: Isaac Sim training and evaluation, GR00T inference on Jetson AGX Thor, Orin NX host for a ROS 2 arm, correction ledger | GR00T TensorRT **101.6 ms median, 9.8 Hz**, Jetson AGX Thor 128GB at 120 W, 2026-08-20 (`reports/thor_trt_benchmark/thor_trt_benchmark.json`). Ludo executor **35/36 turns**, Isaac Sim on RTX 5090, runs 2026-08-19, aggregate 2026-08-20 (`reports/ludo_stats_frozen/`). Orin NX fp16 matmul **9.72 TFLOPS p50**, 2026-08-20 (`reports/jetson/yahboom_day_one/day_one_smoke.json`). GR00T eval01 corrected from an apparent 1/20 to **0/20** (`reports/ludo_groot17_eval01/session_summary_corrected.json`). | Measured. Public repository from a clean tree, 2026-09-09; vendor assets are staged locally, never committed. |
-| **Physical AI Safety Observability** · [repository](https://github.com/obiedeh/physical-ai-safety-observability) · [case study](https://obiedeh.github.io/physical-ai-safety-observability.html) · [evidence page](https://obiedeh.github.io/physical-ai-safety-observability/reports/index.html) | Runtime safety layer: structured safety events, policy engine for PPE, zones and proximity, operator review API, telemetry hooks | Jetson AGX Thor, 2026-09-09: worker sustains **28.6 frames/s** at 30 fps pacing with rule evaluation under 1 ms p95 (mock model, `reports/thor/mock_30fps_no_post.json`). Cosmos-Reason2-2B via vLLM on device: **p50 4.35 s, p95 12.85 s per frame**, 66.6 W board power (`reports/thor/cosmos2b_video_60.json`). | Measured for runtime overhead and inference cost only. Detection quality unmeasured, no ground truth yet. |
-| **Jetson Edge AI Security** · [repository](https://github.com/obiedeh/jetson-edge-ai-security) · [evidence pages](https://obiedeh.github.io/jetson-edge-ai-security/reports/index.html) | Defensive edge telemetry runtime: replayable events, anomaly alerts, operator review, ONNX detector and forecaster, Thor deployment package | Inference on Jetson AGX Thor, CPU provider, 2026-09-08: detector **p95 0.0237 ms at 1000 events/s**, **0.36 GB** peak RSS (`reports/thor_benchmark.json`). Default onnxruntime thread pool drew **54.1 W**; one thread with spinning disabled drew **24.3 W**, equal to idle, with zero pacing misses (`reports/thor_benchmark_threads.json`). | Measured for inference only. Detection quality is on a synthetic fixture; capture path unmeasured. |
+| **Bench2Field** · [repository](https://github.com/obiedeh/bench2field) · [report](https://obiedeh.github.io/bench2field/case_studies/01_perception_detector/report/index.html) | How much of a model optimization survives contact with the robot? | On the rover's Jetson Orin NX at the camera's real 26 Hz, YOLOX-s alone answers in **26.9 ms**, inside the 33.3 ms deadline. The full frame takes **47.8 ms**, so the robot would drop about one frame in eight. A model-only benchmark says GO. (2026-10-02, `case_studies/01_perception_detector/PHASE1_FINDINGS.md`) | v1.0.1 released: measure and diagnose. v2 (optimize and close the gap) in progress. |
+| **Physical AI on Jetson** · [repository](https://github.com/obiedeh/physical-ai-jetson-robotics) · [case study](https://obiedeh.github.io/physical-ai-jetson-robotics.html) | Can a learned policy run on the robot's own compute, and what does the robot cost to run? | GR00T through TensorRT at **101.6 ms median (9.8 Hz)** on Jetson AGX Thor. Isaac Sim Ludo executor **35/36 turns**. A GR00T evaluation corrected from 1/20 to **0/20** and kept on record. Rover SLAM stack measured on the Orin at **11.1 W** board input. (2026-08-20 to 2026-09-16, `reports/`) | Active. Autonomous real-arm pick and place not yet established ([NOT_CLAIMED](https://github.com/obiedeh/physical-ai-jetson-robotics/blob/main/reports/NOT_CLAIMED.md)). |
+| **Physical AI Safety Observability** · [repository](https://github.com/obiedeh/physical-ai-safety-observability) · [showcase](https://obiedeh.github.io/physical-ai-safety-observability/docs/showcase/) | What does it cost to put a vision-language model in the safety loop on the edge device? | Pipeline sustains **28.6 frames/s** with rule evaluation under 1 ms p95 (mock model). Cosmos-Reason2-2B on device: **4.35 s p50 per frame at 66.6 W**. Constrained-decoding guard proven against the live model server. (Jetson AGX Thor, 2026-09-09 and 2026-10-02, `reports/thor/`) | Functional. Live-camera validation in progress; detection quality not yet measured. |
+| **Urban Edge Vision Analytics** · [repository](https://github.com/obiedeh/urban-edge-vision-analytics) · [showcase](https://obiedeh.github.io/urban-edge-vision-analytics/docs/showcase/) | Can one edge box watch several street cameras and turn what it sees into events an operator can review? | Runs end to end on live cameras: stop-sign, two-gate speed and moving-object packs per camera, video decoupled from inference, model chosen per host (Cosmos-Reason2-2B on Thor, Gemma 4 on the RTX 5090). | Functional. Latency, power and pack accuracy measurements pending. |
 
-The combined edge-security and telemetry case study is at [obiedeh.github.io/jetson-edge-ai-security.html](https://obiedeh.github.io/jetson-edge-ai-security.html).
+## How I Lead the Work
 
-## How I Work
-
-- A run is not evidence until its artifact is committed with provenance: device, date, inputs, session options.
-- Corrections stay in the record. The GR00T retraction and the Thor template fix are documented, not overwritten.
-- Simulation, synthetic fixtures, and mock adapters are labelled as such everywhere they appear.
-- Humans stay in the loop: every alert, safety event, and policy output is advisory and operator-reviewed.
+- **Validate against the site, not the spec sheet.** Every result is measured on the hardware it will run on, at the rate it will run at.
+- **Set the budget before the test.** Deadlines, power and accuracy limits are written down first, never fitted to the result.
+- **No claim without its evidence.** A run counts once its artifact is committed with device, date and inputs.
+- **Corrections stay in the record.** The GR00T retraction and the Bench2Field v1.0.1 correction are documented, not overwritten.
+- **Humans stay in the loop.** Every alert, safety event and recommendation is advisory and operator-reviewed.
 
 ## Credibility Boundary
 
-This portfolio separates implemented workflows, runnable scaffolds, mock validation paths, planned hardware benchmarks, and future deployment targets.
-
-Mock adapters, synthetic inputs, and planned Jetson paths are useful engineering scaffolds, but they are not claimed as real-world deployment proof until evidence artifacts exist.
+Each project labels what is measured, implemented but unmeasured, scaffolded or planned. Simulation, synthetic fixtures and mock adapters are labelled wherever they appear, and none of them is presented as deployment proof.
 
 ## Technical Stack
 
-**Physical AI and robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD, GR00T
-**Edge inference:** NVIDIA Jetson AGX Thor and Orin NX, TensorRT, ONNX Runtime, CUDA
+**Physical AI and robotics:** ROS 2, MoveIt 2, Isaac Sim, Isaac Lab, OpenUSD, GR00T, LeRobot, SLAM
+**Edge inference:** NVIDIA Jetson AGX Thor and Orin NX, TensorRT, ONNX Runtime, CUDA, vLLM, Nsight
 **Runtime observability:** telemetry pipelines, safety events, tegrastats power and thermal capture, evidence artifacts with hashes
-**ML:** Python, PyTorch, scikit-learn, ONNX export with parity checks
-**Operational AI:** retrieval-grounded copilots, guardrails, human review
-**Data and infrastructure:** SQL, Spark, Airflow, dbt, Docker, Kubernetes, CI/CD, AWS, Azure, GCP, Terraform
-**Infrastructure and operational reliability:** network and radio telemetry, KPI forecasting, link-level signal analysis, capacity planning
+**ML:** Python, PyTorch, scikit-learn, ONNX export with parity checks, vision-language models (Cosmos-Reason2, Gemma)
+**Operational AI:** retrieval-grounded copilots, guardrails, evaluation harnesses, human review
+**Infrastructure:** Docker, Kubernetes, CI/CD, AWS (Bedrock, App Runner), Azure, GCP, Terraform, SQL, Spark, Airflow
 
 ## Supporting Systems
 
-Smaller systems that prove one discipline each. One line, no further investment planned unless a measurement is added.
-
-| System | What it proves | Data source | Status |
-|---|---|---|---|
-| urban-edge-vision-analytics | Edge vision event pipeline with operator review | Synthetic frames and a mock detector | Scaffold. Repository private. |
-| [private-5g-edge-telemetry](https://github.com/obiedeh/private-5g-edge-telemetry) · [dashboard](https://obiedeh.github.io/private-5g-edge-telemetry/reports/dashboard.html) | Capacity planning under an edge-inference latency budget, with deterministic reports | Simulated factory telemetry | Simulation evidence, no hardware |
-| [wireless-link-intelligence-system](https://github.com/obiedeh/wireless-link-intelligence-system) · [dashboard](https://obiedeh.github.io/wireless-link-intelligence-system/reports/dashboard.html) | Signal-processing correctness and link estimation with a classical baseline first | Deterministic QPSK simulator and synthetic link conditions | Simulation evidence, no hardware |
-| [ai-ran-kpi-forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) · [portal](https://obiedeh.github.io/ai-ran-kpi-forecasting/reports/index.html) | KPI forecasting pattern with no-leakage temporal splits and advisory policy output | 48-row synthetic sample, plus the public Telecom Italia Milan grid (62 days, 3 squares) | Measured: inference cost on Jetson AGX Thor, CPU provider, 2026-09-09 (`reports/thor_benchmark/thor_benchmark.json`); forecast accuracy on public data, 2026-09-09, over two hold-out windows: all three models beat a naive last-value baseline in ordinary weeks, the baseline beats them over the holidays (`reports/forecast_examples/telecom_italia_mi/summary.json`, `..._preholiday/summary.json`) |
-| [ai-phy-neural-receiver-benchmark](https://github.com/obiedeh/ai-phy-neural-receiver-benchmark) · [dashboard](https://obiedeh.github.io/ai-phy-neural-receiver-benchmark/reports/dashboard.html) | Neural versus classical receiver comparison with the boundary of the advantage reported | Sionna-modelled link simulation | Simulation evidence, no hardware |
-
-Hiring-manager mapping: [HIRING_MANAGER_BRIEF.md](HIRING_MANAGER_BRIEF.md).
+| System | What it proves | Status |
+|---|---|---|
+| [Jetson Edge AI Security](https://github.com/obiedeh/jetson-edge-ai-security) · [evidence](https://obiedeh.github.io/jetson-edge-ai-security/reports/index.html) | Defensive edge telemetry with operator-reviewed alerts. Traced a 54.1 W runtime power draw on Jetson AGX Thor to the default inference thread pool; running one thread with spinning disabled brought it to 24.3 W, equal to idle, with zero missed deadlines. | Measured for inference and power. Detection quality on a synthetic fixture. |
+| [Field Commissioning Copilot](https://github.com/obiedeh/field-commissioning-das-copilot) | Field commissioning for distributed antenna system (DAS) networks: a retrieval-grounded copilot that answers from OEM documentation, says when its sources don't cover a question, and flags any unverified number before field use. Bedrock, pgvector, offline evaluation harness. | Runs locally. Cloud deployment planned. |
+| Wireless signal AI: [neural receiver](https://github.com/obiedeh/ai-phy-neural-receiver-benchmark) · [KPI forecasting](https://github.com/obiedeh/ai-ran-kpi-forecasting) · [link intelligence](https://github.com/obiedeh/wireless-link-intelligence-system) · [edge telemetry](https://github.com/obiedeh/private-5g-edge-telemetry) | Learned models measured against classical baselines, with the limits of the advantage reported. The KPI forecaster beats a naive baseline in ordinary weeks and loses to it over holidays, and says so. | Simulation and public-data evidence. |
 
 ## Contact
 
 - Email: [obiedeh@gmail.com](mailto:obiedeh@gmail.com)
 - LinkedIn: [linkedin.com/in/obinna-edeh-206306137](https://linkedin.com/in/obinna-edeh-206306137)
+- Lab: [embodiededge.ai](https://embodiededge.ai)
 - Site: [obiedeh.github.io](https://obiedeh.github.io/)
