@@ -1,2 +1,0 @@
-"""Deterministic safety policy evaluation."""
-

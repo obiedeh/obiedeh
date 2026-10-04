@@ -1,2 +1,0 @@
-"""Evidence chain helpers."""
-
