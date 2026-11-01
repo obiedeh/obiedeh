@@ -1,0 +1,158 @@
+name: Repository policy validation
+
+on:
+  push:
+    branches: ["**"]
+    tags-ignore: ["**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  policy-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate policy contract and required-rule failures
+        run: |-
+          python - <<'PY'
+          """Validate the local instruction contract and prove every rule is required."""
+          from datetime import date
+          from hashlib import sha256
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import sys
+
+          CANONICAL_URL = "https://github.com/obiedeh/obiedeh-brand/blob/main/AGENTS.md#repository-hygiene-standing-every-repo"
+          BOARDS = ("jetson-agx-thor", "jetson-orin-nx", "rtx-5090-workstation")
+          CONTRACTS = {'obiedeh/obiedeh': '3ebce19ef490d3843c40b41413264446b77d7a3c21217a299ba792edca6b9910', 'obiedeh/obiedeh.github.io': '3ebce19ef490d3843c40b41413264446b77d7a3c21217a299ba792edca6b9910', 'obiedeh/embodiededge-site': 'd2acca5a73870ce73fbf46ace3faa8c34063a8b22f576d0fdc979f97e811bf77'}
+
+          class PolicyError(ValueError):
+              pass
+
+          def need(condition, code):
+              if not condition:
+                  raise PolicyError(code)
+
+          def heading_is_active(text, offset):
+              """Track comment and fenced-code context up to a selected heading."""
+              comment = False
+              fence = None
+              for line in text[:offset].splitlines():
+                  if fence is not None:
+                      char, length = fence
+                      closing = r" {0,3}" + re.escape(char) + r"{" + str(length) + r",}[ \t]*"
+                      if re.fullmatch(closing, line):
+                          fence = None
+                      continue
+                  if not comment:
+                      opening = re.fullmatch(r" {0,3}(`{3,}|~{3,})(.*)", line)
+                      if opening:
+                          marker, info = opening.groups()
+                          if marker[0] == "~" or "`" not in info:
+                              fence = (marker[0], len(marker))
+                              continue
+                  position = 0
+                  while position < len(line):
+                      if comment:
+                          end = line.find("-->", position)
+                          if end < 0:
+                              break
+                          comment = False
+                          position = end + 3
+                      else:
+                          start = line.find("<!--", position)
+                          if start < 0:
+                              break
+                          comment = True
+                          position = start + 4
+              return not comment and fence is None
+
+          def section(text, title, code, context_code=None):
+              """Select one section, requiring an active heading when requested."""
+              matches = list(re.finditer(r"^## " + re.escape(title) + r"[ \t]*$", text, re.M))
+              need(bool(matches), code)
+              if context_code is not None:
+                  matches = [match for match in matches if heading_is_active(text, match.start())]
+                  need(bool(matches), context_code)
+              need(len(matches) == 1, code)
+              tail = text[matches[0].end():]
+              end = re.search(r"^#{1,2} ", tail, re.M)
+              return tail[:end.start()] if end else tail
+
+          def validate_agents(text, expected):
+              """Validate the active instruction section against its reviewed contract."""
+              block = section(text, "Repository hygiene", "P01", "P06")
+              need(not any(marker in block for marker in ("```", "~~~", "<!--", "-->")), "P06")
+              links = re.findall(r"\[Repository hygiene policy in obiedeh-brand/AGENTS\.md\]\(([^)]+)\)", block)
+              need(links == [CANONICAL_URL], "P02")
+              bullets = re.findall(r"^- .+$", block, re.M)
+              need(len(bullets) == 5, "P03")
+              need(tuple(re.findall(r"`([^`]+)`", bullets[0])) == BOARDS, "P04")
+              need(sha256(" ".join(block.split()).encode()).hexdigest() == expected, "P05")
+              return bullets
+
+          def validate_changelog(text):
+              block = section(text, "Unreleased", "P07")
+              entries = []
+              for stamp, message in re.findall(r"^- ([0-9]{4}-[0-9]{2}-[0-9]{2}): (.+)$", block, re.M):
+                  try:
+                      date.fromisoformat(stamp)
+                  except ValueError:
+                      raise PolicyError("P09") from None
+                  entries.append(message.casefold())
+              need(any("hygiene policy" in message and "link" in message for message in entries), "P08")
+              need(any("validat" in message and ("repository instruction" in message or "policy contract" in message) for message in entries), "P10")
+
+          def main():
+              """Check real files and exercise required-rule and context failures in memory."""
+              expected = CONTRACTS.get(os.environ.get("GITHUB_REPOSITORY", ""))
+              need(expected is not None, "P00")
+              try:
+                  agents = Path("AGENTS.md").read_text(encoding="utf-8")
+                  changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
+              except (OSError, UnicodeError):
+                  raise PolicyError("F01") from None
+              bullets = validate_agents(agents, expected)
+              validate_changelog(changelog)
+              for bullet in bullets:
+                  mutated = agents.replace(bullet, "", 1)
+                  try:
+                      validate_agents(mutated, expected)
+                  except PolicyError as error:
+                      need(str(error) == "P03", "S02")
+                  else:
+                      raise PolicyError("S01")
+              wrappers = (("<!--\n", "\n## Later\n-->\n"),
+                          ("```markdown\n", "\n## Later\n```\n"),
+                          ("~~~markdown\n", "\n## Later\n~~~\n"))
+              for opening, closing in wrappers:
+                  try:
+                      validate_agents(opening + agents + closing, expected)
+                  except PolicyError as error:
+                      need(str(error) == "P06", "S02")
+                  else:
+                      raise PolicyError("S01")
+              print(json.dumps({"policy_contracts": 1, "dated_changelog": 1,
+                                "required_rule_negative_cases": len(bullets),
+                                "enclosing_context_negative_cases": len(wrappers)}))
+
+          try:
+              main()
+          except PolicyError as error:
+              print(json.dumps({"error": str(error)}), file=sys.stderr)
+              raise SystemExit(1) from None
+          except Exception:
+              print(json.dumps({"error": "F99"}), file=sys.stderr)
+              raise SystemExit(1) from None
+          PY
