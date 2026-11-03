@@ -1,10 +1,10 @@
 # Obinna Edeh
 
-**I lead Physical AI and edge systems from the bench to the field, and I stay hands-on.**
+**I close the gap between a robot that works in the lab and a fleet that works in the field.**
 
-I've spent my career getting new hardware to perform at scale, leading engineering teams, field crews and vendors through nationwide deployments of hundreds of sites a year. One lesson held on every program: a spec sheet describes ideal conditions; the site shows what the hardware actually does.
+I help teams take hardware and AI from prototype to reliable operation at scale. I have done that across deployment and integration programs at AT&T, Google, Amdocs and T-Mobile, leading engineering teams, field crews and vendors through thousands of field sites. One lesson held on every program: a spec sheet describes ideal conditions; the site shows what the hardware actually does.
 
-Physical AI has the same gap. At [EmbodiedEdge Labs](https://embodiededge.ai), my Physical AI lab, I test robots and edge AI on my own hardware and measure what survives the move from benchmark to field.
+Physical AI has the same gap. At [EmbodiedEdge](https://embodiededge.ai), my Physical AI lab, I test robots and edge AI on my own hardware and measure what survives the move from benchmark to field.
 
 Open to senior engineering leadership roles in Physical AI, robotics and edge AI.
 
@@ -25,7 +25,7 @@ Each project links its proof: the measured result, the hardware and the date.
 | System | What the evidence shows | Status |
 |---|---|---|
 | **Bench2Field**<br>[Repository](https://github.com/obiedeh/bench2field)<br>**Proof:** [Case study](https://obiedeh.github.io/bench2field.html) · [Report](https://obiedeh.github.io/bench2field/case_studies/01_perception_detector/report/index.html) | **The benchmark said GO. The robot would drop frames.** On the rover's Jetson Orin NX the detector alone meets its 33.3 ms deadline (26.9 ms); the full frame takes 47.8 ms. | v1.0.1 released. v2 in progress. |
-| **Physical AI on Jetson**<br>[Repository](https://github.com/obiedeh/physical-ai-jetson-robotics)<br>**Proof:** [Case study](https://obiedeh.github.io/physical-ai-jetson-robotics.html) | **A learned policy running on the robot's own compute.** GR00T through TensorRT at 9.8 Hz on Jetson AGX Thor, with a failed evaluation corrected and kept on the record. | Active. |
+| **Physical AI on Jetson**<br>[Repository](https://github.com/obiedeh/physical-ai-jetson-robotics)<br>**Proof:** [Case study](https://obiedeh.github.io/physical-ai-jetson-robotics.html) | **A learned policy running on the robot's own compute.** GR00T through TensorRT at 9.8 Hz on Jetson AGX Thor, with a failed evaluation corrected and kept on the record. In simulation, demonstrations that keep mistakes and their corrections took cup placement from 0 to 16 of 50. | Active. |
 | **Physical AI Safety Observability**<br>[Repository](https://github.com/obiedeh/physical-ai-safety-observability)<br>**Proof:** [Case study](https://obiedeh.github.io/physical-ai-safety-observability.html) · [Showcase](https://obiedeh.github.io/physical-ai-safety-observability/docs/showcase/) | **Priced the safety loop before anyone depends on it.** A vision-language model on the device costs 4.35 s per frame at 66.6 W. | Functional. Live-camera validation in progress. |
 | **Urban Edge Vision Analytics**<br>[Repository](https://github.com/obiedeh/urban-edge-vision-analytics)<br>**Proof:** [Showcase](https://obiedeh.github.io/urban-edge-vision-analytics/docs/showcase/) | **One edge box watching several street cameras.** Runs end to end on live cameras; measurement is next. | Functional. |
 
@@ -48,9 +48,4 @@ Simulation, synthetic data and mock adapters are labelled wherever they appear a
 
 ## Contact
 
-[obiedeh@gmail.com](mailto:obiedeh@gmail.com) · [LinkedIn](https://linkedin.com/in/obinna-edeh-206306137) · [embodiededge.ai](https://embodiededge.ai) · [obiedeh.github.io](https://obiedeh.github.io/)
-## Repository validation
-
-Branch pushes (excluding tags) and pull requests to `main` validate the repository instruction contract and dated changelog. The workflow also rejects five in-memory policy copies with one required rule removed from each, plus three copies hidden inside comments or code fences.
-
-The inline check in [.github/workflows/policy.yml](.github/workflows/policy.yml) uses only the Python 3.12 standard library. To run it locally, execute its Python step from the repository root with `GITHUB_REPOSITORY=obiedeh/obiedeh`. No packages or services are required.
+[Newsletter: At the Edge with Obyno](https://attheedgewithobyno.beehiiv.com) · [obiedeh@gmail.com](mailto:obiedeh@gmail.com) · [LinkedIn](https://linkedin.com/in/obinna-edeh-206306137) · [embodiededge.ai](https://embodiededge.ai) · [obiedeh.github.io](https://obiedeh.github.io/)
