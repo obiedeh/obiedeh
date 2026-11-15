@@ -1,6 +1,8 @@
 # Obinna Edeh
 
-**I close the gap between a robot that works in the lab and a fleet that works in the field.**
+**I design and build Physical AI, robotics and edge AI systems, then prove them on real hardware.**
+
+I close the gap between a robot that works in the lab and a fleet that works in the field.
 
 I help teams take hardware and AI from prototype to reliable operation at scale. I have done that across deployment and integration programs at AT&T, Google, Amdocs and T-Mobile, leading engineering teams, field crews and vendors through thousands of field sites. One lesson held on every program: a spec sheet describes ideal conditions; the site shows what the hardware actually does.
 
