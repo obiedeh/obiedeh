@@ -1,6 +1,6 @@
 # Obinna Edeh
 
-**I design and build Physical AI, robotics and edge AI systems, then prove them on real hardware.**
+**I design and build Physical AI and edge AI systems, and prove them on real robots and hardware.**
 
 I close the gap between a robot that works in the lab and a fleet that works in the field.
 
