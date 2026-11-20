@@ -51,4 +51,4 @@ Simulation, synthetic data and mock adapters are labelled wherever they appear a
 
 ## Contact
 
-[Newsletter: At the Edge with Obyno](https://attheedgewithobyno.beehiiv.com) · [obiedeh@gmail.com](mailto:obiedeh@gmail.com) · [LinkedIn](https://linkedin.com/in/obinna-edeh-206306137) · [embodiededge.ai](https://embodiededge.ai) · [obiedeh.github.io](https://obiedeh.github.io/)
+[Newsletter: Runtime Reality](https://attheedgewithobyno.beehiiv.com) · [YouTube: At the Edge with Obyno](https://www.youtube.com/@AtTheEdgeWithObyno) · [obiedeh@gmail.com](mailto:obiedeh@gmail.com) · [LinkedIn](https://linkedin.com/in/obinna-edeh-206306137) · [embodiededge.ai](https://embodiededge.ai) · [obiedeh.github.io](https://obiedeh.github.io/)
