@@ -1,12 +1,12 @@
 # Obinna Edeh
 
-**I design and build Physical AI and edge AI systems, and prove them on real robots and hardware.**
+**Helping teams take Physical AI and robotics from pilot to reliable operation at scale. From spec sheet to field.**
 
-I close the gap between a robot that works in the lab and a fleet that works in the field.
+Most Physical AI works in the lab. The hard part is the first site, then every site after it. I design and build Physical AI and edge AI systems, and prove them on real robots and hardware.
 
-I help teams take hardware and AI from prototype to reliable operation at scale. I have done that across deployment and integration programs at AT&T, Google, Amdocs and T-Mobile, leading engineering teams, field crews and vendors through thousands of field sites. One lesson held on every program: a spec sheet describes ideal conditions; the site shows what the hardware actually does.
+A spec sheet tells you what hardware should do. The field tells you what it actually does. That rule comes from deployment and integration programs at AT&T, Google and Amdocs: thousands of field sites, delivered through teams, vendors and live customer environments.
 
-Physical AI has the same gap. At [EmbodiedEdge](https://embodiededge.ai), my Physical AI lab, I test robots and edge AI on my own hardware and measure what survives the move from benchmark to field.
+At [EmbodiedEdge](https://embodiededge.ai), my Physical AI lab, I test robotics and edge AI systems on my own hardware and publish what fails and how I fixed it, so the next team doesn't lose the same week.
 
 Open to senior engineering leadership roles in Physical AI, robotics and edge AI.
 

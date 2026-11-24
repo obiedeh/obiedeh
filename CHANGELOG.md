@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- 2026-11-24: Profile README opens on the team's problem and the signature line "From spec sheet to field", in line with the 2026-11-24 LinkedIn profile: the build line moves second, the programs line names AT&T, Google and Amdocs, and the lab line says what it publishes.
 - 2026-11-20: Contact line names the newsletter Runtime Reality (published from At the Edge with Obyno) and adds the At the Edge with Obyno YouTube channel.
 - 2026-11-15: The safety and Urban Edge rows link their full build reports on obiedeh.github.io.
 - 2026-11-15: Safety row adds the grammar cost (2.69 s) and the labeled simulation results (false gear alarms 11 to 0; Cosmos 3 Edge found the worker in 44 of 45 against 29); Urban Edge row adds the Cosmos 3 Edge generation and prediction runs on the Thor; the technical stack adds a world models line (Cosmos Reason 2, Cosmos 3 Edge, Cosmos Transfer). Every figure is in the public repositories' records.
